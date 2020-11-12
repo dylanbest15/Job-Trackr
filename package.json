@@ -1,7 +1,7 @@
 {
-  "name": "project-3",
+  "name": "job-trackr",
   "version": "1.0.0",
-  "description": "project-3",
+  "description": "Job Trackr",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dylanbest15/project-3.git"
+    "url": "git+https://github.com/dylanbest15/Job-Trackr.git"
   },
   "author": "",
   "license": "ISC",
@@ -26,11 +26,18 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "express-session": "^1.17.1",
+    "if-env": "^1.0.4",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.5"
   },
   "bugs": {
-    "url": "https://github.com/dylanbest15/project-3/issues"
+    "url": "https://github.com/dylanbest15/Job-Trackr/issues"
   },
-  "homepage": "https://github.com/dylanbest15/project-3#readme"
+  "homepage": "https://github.com/dylanbest15/Job-Trackr#readme"
 }
