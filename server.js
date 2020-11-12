@@ -4,6 +4,9 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// require models for syncing
+const db = require("./models");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,6 +21,14 @@ if (process.env.NODE_ENV === "production") {
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 
 // Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+}).catch((err) => {
+  console.log(err);
 });
