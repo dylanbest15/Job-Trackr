@@ -1,0 +1,126 @@
+body {
+    background: url(../../assets/background.jpg);  
+    width: auto;
+    height: auto;
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+    background-attachment: fixed;
+    
+}
+
+
+button {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.startPage {
+    margin-bottom: 10px
+}
+.btn {
+    border-radius: 3px;
+    height: 60px;
+    background-color: #6c8b91;
+    width: 65%;
+    font-size: 20px;
+    transition-duration: 0.5s;
+    margin-top: 20px;
+}
+.btn:hover {
+    background-color:#0a44508e;
+    color: white;
+}
+.signin-logo {
+    height: 250px;
+    width: 50%;
+    margin-top: -50px;
+
+}
+.title {
+    margin-top: -20px;
+	font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.login-title, .registerTitle {
+    margin-top: -20px;
+    margin-bottom: 25px;
+	font-weight: bold;
+    font-size: 50px;
+}
+
+
+.subHeading {
+    font-size: 22px;
+}
+
+.box {
+	bottom: 0;
+    left: 0;
+    margin-top: 48px;
+	margin-bottom: 48px;
+	margin-left: 48px;
+    margin-right: 48px;
+    text-align: center;
+    background-color: rgba(43, 26, 71, 0.4);
+    text-align: center;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    border-radius: 25px;
+
+}
+
+div.login-container, div.signupJumbo {
+    width: 500px;
+  }
+
+  input[type=text], input[type=password], input[type=date] {
+	width: 400px;
+	margin-bottom: 22px;
+	padding: 16px;
+	background-color: #ecf2f4;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+.back {
+    width: 25px;
+    padding: 15px;
+    background-color: transparent;
+    border: transparent;
+}
+label {
+    color:#fff;
+    font-size: 16px;
+}
+input[type=checkbox] {
+    height: 15px;
+    width: 15px;
+}
+#rememberMe {
+    margin-left: 0;
+}
+.signIn {
+    float: left;
+    width: 45%;
+}
+#signInBtn {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.signUp {
+    float: right;
+    width: 45%;
+}

@@ -36,6 +36,8 @@
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.5"
   },
   "bugs": {
