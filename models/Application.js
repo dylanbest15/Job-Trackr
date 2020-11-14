@@ -31,6 +31,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    status: {
+      types: DataTypes.ENUM({
+        values: ["pending", "applied"]
+      }),
+      defaultValue: "pending",
+      allowNull: false
+    }
   });
 
   Application.associate = function(models) {
