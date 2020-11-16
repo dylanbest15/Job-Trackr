@@ -1,4 +1,5 @@
 import React from "react";
+import ResponsiveDrawer from "./components/SideBar/SideBar";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Books from "./pages/Books";
 // import Detail from "./pages/Detail";
@@ -8,7 +9,10 @@ import React from "react";
 function App() {
   return (
     <div>
+    <ResponsiveDrawer>
       <h1>This works</h1>
+
+    </ResponsiveDrawer>
     </div>
     // <Router>
     //   <div>
