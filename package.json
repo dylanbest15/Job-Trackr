@@ -38,11 +38,8 @@
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-<<<<<<< HEAD
     "prop-types": "^15.7.2",
-=======
     "react-icons": "^3.11.0",
->>>>>>> fbce8a01a11da4f13e9293cd992dd35720117bef
     "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.5"
   },
