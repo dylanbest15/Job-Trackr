@@ -86,7 +86,9 @@ button {
 div.login-container, div.signupJumbo {
     width: 500px;
   }
-
+.registerTitle {
+    margin-bottom: 50px;
+}
   input[type=text], input[type=password], input[type=date] {
 	width: 400px;
 	margin-bottom: 22px;
