@@ -3,20 +3,6 @@
     font-size: 18px;
 }
 
-#job-accordion {
-    background-color: rgba(43, 26, 71, 0.4);
-    color: rgb(255, 255, 255);
-}
-
-#btn {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    border-radius: 3px;
-    background-color: #6c8b91;
-    transition-duration: 0.5s;
-    margin-top: 20px;
-}
-#btn:hover {
-    background-color:#0a44508e;
-    color: white;
+#accordionHeader {
+    background-color: rgba(43, 26, 71, 0.2);
 }

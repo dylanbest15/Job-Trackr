@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 // import Axios from 'axios';
-import Accordion from '../../components/Accordion/index';
+import PendingAccordion from '../../components/PendingAccordion/index';
 import Container from '@material-ui/core/Container';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
 
-class Applied extends Component {
+class Pending extends Component {
 
     render() {
         return (
             <div>
                 <ResponsiveDrawer />
                 <Container maxWidth="md" style={{ padding: 80 }}>
-                    <Accordion />
+                    <PendingAccordion />
                 </Container>
             </div>
         )
     }
 }
-export default Applied;
+export default Pending;
