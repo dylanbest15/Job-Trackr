@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
+import { Link  } from 'react-router-dom';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work'; 
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
@@ -75,12 +76,13 @@ function ResponsiveDrawer(props) {
       </div>
       <Divider />
       <List>
-      <ListItem button>
+      <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
+        
         <ListItem button>
           <ListItemIcon>
             <WorkIcon />

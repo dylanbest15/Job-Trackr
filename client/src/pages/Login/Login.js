@@ -6,7 +6,7 @@ import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 function Login() {
   return (
-      <div className="main-content">
+      <div className="main-content login-bg">
       <div className="login-container box animate__animated animate__fadeIn animate__delay-0.5s">
 
         <button className="back fas fa-arrow-circle-left" value="Go back!" onclick="history.back()">
