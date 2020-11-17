@@ -1,5 +1,4 @@
 body {
-    background: url(../../assets/background.jpg);  
     width: auto;
     height: auto;
     background-size: cover; /* or contain depending on what you want */
@@ -9,7 +8,6 @@ body {
     margin:auto;
     padding:0;
     background-attachment: fixed;
-    
 }
 
 
@@ -24,6 +22,10 @@ button {
     justify-content: center;
     align-items: center;
   }
+
+.main-content.login-bg {
+    background: url(../../assets/background.jpg);
+}
 
 .startPage {
     margin-bottom: 10px

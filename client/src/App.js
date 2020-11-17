@@ -6,6 +6,7 @@ import Register from "./pages/Register/Register";
 import Applied from "./pages/Applied/Applied";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Articles from "./pages/Articles/Articles";
 
 
 function App() {
@@ -15,11 +16,13 @@ function App() {
         <div className="App">
           <Switch>
             <Route path="/" exact component={Login} />
-            <Route path="/Register" component={Register} />
+            <Route path="/register" component={Register} />
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="/applied" component={Applied} />
             <Route path="/search" component={Search} />
-
+            <Route path="/applied" component={Applied} />
+            <Route path="/resources" component={Articles} />
+            {/* <Route path="/suggestedJobs" component={SuggestedJobs} /> */}
+            {/* <Route path="/profile" component={Profile} /> */}
           </Switch>
         </div>
       </Router>
