@@ -1,5 +1,5 @@
 import React from "react";
-import ArticleGrid from "./components/ArticleGrid"
+import ArticleGrid from "../../components/ArticleGrid/index"
 
 function Articles() {
   return (
