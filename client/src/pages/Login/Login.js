@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../../assets/logo.png';
+import './Login.css';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 
