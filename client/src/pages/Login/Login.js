@@ -1,6 +1,8 @@
 import React from "react";
 import { Spring } from 'react-spring/renderprops'
 import logo from '../../assets/logo.png';
+import './Login.css';
+import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 
 function Login() {
