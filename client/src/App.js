@@ -3,8 +3,8 @@ import ResponsiveDrawer from "./components/SideBar/SideBar";
 import Home from "./pages/Home/Home"
 import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register";
-import Applied from "./pages/Applied";
-import Dashboard from "./pages/Dashboard";
+import Applied from "./pages/Applied/Applied";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
