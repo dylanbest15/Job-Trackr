@@ -10,7 +10,7 @@ class Search extends Component {
         return (
             <div>
                 <ResponsiveDrawer />
-                <Container maxWidth="md">
+                <Container maxWidth="md" style={{ padding: 80 }}>
                     <Accordion />
                 </Container>
             </div>
