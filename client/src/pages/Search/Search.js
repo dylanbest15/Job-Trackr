@@ -1,47 +1,50 @@
-import React, { Component } from 'react';
-import SearchArea from './../components/SearchArea';
+import React, { Component, useState } from 'react';
+import SearchArea from './SearchArea';
+import API from './../../utils/API';
 import Axios from 'axios';
-import Card from './card';
+// import Card from './card';
+import ResponsiveDrawer from './../../components/SideBar/SideBar';
 
-class Search extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            jobs: [],
-            searchField: ''
 
-        }
-    }
-    searchjob = (e) => {
-        e.preventDefault();
-        Axios
-        //REFERANCE API CALL HERE
-            // .get("https://www.googleapis.com/books/v1/volumes?q="+this.state.searchField)
-            .then((data) => {
-                console.log(data);
-                this.setState({jobs:data.data.items})
-            })
+function Search() {
+    const [search, setSearch] = useState("");
+
+    function handleInputChange(event) {
+      setSearch(event.target.value);
     }
 
-    handleSearh = (e) => {
-        this.setState({ searchField: e.target.value })
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      API.getJobs()
+        .then(res => console.log(res))
+        
+        .catch(err => console.log(err));
     }
 
-    render() {
-        return (
-            <div >
-                <SearchArea searchJob={this.searchJob} handleSearch={this.handleSearh} />
-               <div style={{display:"flex", flexDirection:"column"}}>
-                {
-                    this.state.books.map((book)=>{
-                     return  <Card {...job} typeBtn= "Save"/>
-                    }
-                    )
-                }
-                
-               </div> 
+    return (
+      <>
+      <div>
+          <ResponsiveDrawer />
+        <div className="container">
+          <form onSubmit={handleFormSubmit}>
+            <h4>Book Search</h4>
+            <div className="row search-box">
+              <div className="col-12 search-input">
+                <input className="form-control" type="text" placeholder="Search" aria-label="Search"
+                  onChange={handleInputChange}></input>
+              </div>
             </div>
-        )
-    }
-}
+            <div className="row button-row justify-content-end">
+              <button type="submit" className="btn btn-primary">Search</button>
+            </div>
+          </form>
+          <div className="row search-results">
+            <h4>Results</h4>
+            
+          </div>
+        </div>
+        </div>
+      </>
+    )
+  }
 export default Search;
