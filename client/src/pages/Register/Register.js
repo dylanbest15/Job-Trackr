@@ -1,23 +1,57 @@
 import React from "react";
 import logo from '../../assets/logo.png';
+import { Spring } from 'react-spring/renderprops'
 
 function Register() {
   return (
-<div className="main-content">
-        <div className="signupJumbo box animate__animated animate__fadeIn animate__delay-0.5s">
-          <button className="back fas fa-arrow-circle-left" value="Go back!" onclick="history.back()">
-          </button>
-          <div className="container singupContain">
+    <div className="main-content login-bg">
+      <div className="signupJumbo box">
+        <div className="container singupContain">
           <img className="signin-logo" src={logo} alt="eye logo" />
-          <h1 className="title registerTitle">JOB TRACKR</h1>
-            <form className="animate__animated animate__fadeIn animate__delay-2s">
-              <input type="text" placeholder="email" id="email" />
-              <input type="password" placeholder="password" id="password" />
-              <button className="btn btn-default login-btn" id="signUpBtn">Sign Up</button>
-            </form>
-          </div>
+
+          <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{ delay: 250, duration: 1000 }}
+          >
+            {props => (
+              <div style={props}>
+                <h1 className="title registerTitle">JOB TRACKR</h1>
+              </div>
+            )}
+          </Spring>
+          <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{ delay: 500, duration: 1000 }}
+          >
+            {props => (
+              <div style={props}>
+                <form>
+                  <input type="text" placeholder="email" id="email" />
+                  <input type="password" placeholder="password" id="password" />
+                </form>
+                <a className="signUpHere" href="/">Sign In Here</a>
+              </div>
+            )}
+          </Spring>
+
+          <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+            config={{ delay: 750, duration: 1000 }}
+          >
+            {props => (
+              <div style={props}>
+                <button className="btn btn-default login-btn" id="signUpBtn">Sign Up</button>
+
+              </div>
+            )}
+          </Spring>
+
         </div>
       </div>
+    </div>
 
     );
   };

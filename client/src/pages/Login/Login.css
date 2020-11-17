@@ -1,16 +1,6 @@
 body {
-    width: auto;
-    height: auto;
-    background-size: cover; /* or contain depending on what you want */
-    background-position: center center;
-    background-repeat: no-repeat;
-    text-align:center;
-    margin:auto;
-    padding:0;
-    background-attachment: fixed;
+    margin: 0;
 }
-
-
 button {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -25,6 +15,15 @@ button {
 
 .main-content.login-bg {
     background: url(../../assets/background.jpg);
+    width: auto;
+    min-height: 100vh;
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+    background-attachment: fixed;
 }
 
 .startPage {
@@ -38,6 +37,9 @@ button {
     font-size: 20px;
     transition-duration: 0.5s;
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 .btn:hover {
     background-color:#0a44508e;
@@ -46,7 +48,7 @@ button {
 .signin-logo {
     height: 250px;
     width: 50%;
-    margin-top: -50px;
+    margin-top: -15px;
 
 }
 .title {
@@ -80,7 +82,7 @@ button {
     padding: 32px;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 550px;
     border-radius: 25px;
 
 }
@@ -89,7 +91,7 @@ div.login-container, div.signupJumbo {
     width: 500px;
   }
 
-  input[type=text], input[type=password], input[type=date] {
+  input[type=text], input[type=password] {
 	width: 400px;
 	margin-bottom: 22px;
 	padding: 16px;
@@ -111,8 +113,9 @@ input[type=checkbox] {
     height: 15px;
     width: 15px;
 }
-#rememberMe {
-    margin-left: 0;
+.signUpHere {
+    margin-right: 40px;
+    float: right;
 }
 .signIn {
     float: left;
@@ -126,3 +129,24 @@ input[type=checkbox] {
     float: right;
     width: 45%;
 }
+@media only screen and (max-width: 565px) {
+    div.login-container, div.signupJumbo {
+        width: 300px;
+    }
+    input[type=text], input[type=password], input[type=date] {
+        width: 250px;
+    }
+
+    .signin-logo {
+        height: 250px;
+        width: 75%;
+        margin-top: -50px;
+    
+    }
+    .signUpHere {
+        margin-right: 85px;
+    }
+    .box {
+        height: 600px;
+    }
+  }
