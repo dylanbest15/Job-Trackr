@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 // import Axios from 'axios';
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
-import Container from '@material-ui/core/Container';
-// import ResponsiveDrawer from "../../components/SideBar/SideBar";
+import ResponsiveDrawer from "../../components/SideBar/SideBar";
+import { makeStyles } from '@material-ui/core';
 
-class Search extends Component {
-
-    render() {
-        return (
-            <div>
-                {/* <ResponsiveDrawer /> */}
-                <Container maxWidth="lg">
-                    <DashboardLayout />
-                </Container>
-            </div>
-        )
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
     }
-}
-export default Search;
+}));
+
+function Dashboard() {
+
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <ResponsiveDrawer />
+            <DashboardLayout />
+        </div>
+    )
+};
+
+export default Dashboard;
