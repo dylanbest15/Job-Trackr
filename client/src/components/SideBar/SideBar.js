@@ -22,6 +22,8 @@ import WorkIcon from '@material-ui/icons/Work';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import BusinessIcon from '@material-ui/icons/Business';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Logo from "../../assets/logo.png"
+import { blue } from '@material-ui/core/colors';
 import "../../styles/SideBar.css";
 
 const drawerWidth = 240;
@@ -70,40 +72,45 @@ function ResponsiveDrawer(props) {
   };
 
   const drawer = (
-    <div>
+    <div id="sidebar">
       <div className={classes.toolbar} >
-        <h1>Logo</h1>
+        <img 
+        src={Logo}
+        width="70"
+        height="70"
+        alt="Job trackr Logo"
+         />
       </div>
       <Divider />
       <List>
       <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
-            <DashboardIcon />
+            <DashboardIcon style={{ color: blue[50] }} />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
         
-        <ListItem button>
+        <ListItem button component={Link} to="/applied">
           <ListItemIcon>
-            <WorkIcon />
+            <WorkIcon style={{ color: blue[50] }} />
           </ListItemIcon>
           <ListItemText primary="Jobs" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component={Link} to="/applied">
           <ListItemIcon>
-            <WorkOutlineIcon />
+            <WorkOutlineIcon style={{ color: blue[50] }} />
           </ListItemIcon>
           <ListItemText primary="Suggested Jobs" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component={Link} to="/resources">
           <ListItemIcon>
-            <BusinessIcon />
+            <BusinessIcon style={{ color: blue[50] }} />
           </ListItemIcon>
           <ListItemText primary="Resources" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
-            <AccountCircleIcon />
+            <AccountCircleIcon style={{ color: blue[50] }} />
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
@@ -132,7 +139,7 @@ function ResponsiveDrawer(props) {
   return (
     <div className={classes.root} >
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar} >
         <Toolbar id="topBar">
           <IconButton
             color="inherit"
@@ -144,13 +151,13 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-             Job Trackr
+             Welcome to Job Trackr!
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer}>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+        <Hidden smUp implementation="css" >
           <Drawer
             container={container}
             variant="temporary"
