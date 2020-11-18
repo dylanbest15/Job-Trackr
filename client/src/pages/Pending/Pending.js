@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import Axios from 'axios';
-import Accordion from '../../components/Accordion/index';
+import PendingAccordion from '../../components/PendingAccordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
 import { makeStyles } from '@material-ui/core';
 
@@ -10,16 +10,16 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Applied() {
+function Pending() {
 
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-            <Accordion />
+            <PendingAccordion />
         </div>
     )
 };
 
-export default Applied;
+export default Pending;
