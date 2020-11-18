@@ -1,3 +1,10 @@
 #topBar {
-    background-color: black;
+    background: url(../assets/background.jpg);
+    height: 80px;
+}
+
+#sidebar {
+    background: url(../assets/background.jpg);
+    color: white;
+    height: 100%;
 }
