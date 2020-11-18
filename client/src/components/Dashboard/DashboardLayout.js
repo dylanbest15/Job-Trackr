@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import RecentJobsTable from '../RecentJobsTable/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,10 +45,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
-              <h3>Your <b>Jobs </b><a href="/applied"> View All</a></h3>
-              <p>November 10: Company Name</p>
-              <p>November 14: Company Name</p>
-              <p>November 19: Company Name</p>
+              <RecentJobsTable/>
             </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
