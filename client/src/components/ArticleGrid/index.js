@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+ // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
@@ -34,6 +35,7 @@ export default function ArticleGrid() {
 
   return (
     <div className={classes.root}>
+    {/* content and toolbar to position content on the page */}
     <main className={classes.content}>
     <div className={classes.toolbar} />
       <Grid
