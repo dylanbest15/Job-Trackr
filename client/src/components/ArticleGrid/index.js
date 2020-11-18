@@ -10,10 +10,23 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+
+
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+ // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
   },
 }));
 
@@ -22,7 +35,10 @@ export default function ArticleGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid 
+    {/* content and toolbar to position content on the page */}
+    <main className={classes.content}>
+    <div className={classes.toolbar} />
+      <Grid
         container spacing={3}
         justify="center"
         align="center"
@@ -91,6 +107,7 @@ export default function ArticleGrid() {
                 />
             </Grid>
       </Grid>
+      </main>
     </div>
   );
 }
