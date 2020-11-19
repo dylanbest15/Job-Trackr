@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import SearchArea from './SearchArea';
 import API from './../../utils/API';
-import Axios from 'axios';
+// import Axios from 'axios';
 // import Card from './card';
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
 
