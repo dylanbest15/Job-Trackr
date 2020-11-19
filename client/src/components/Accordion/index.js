@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DetailedAccordion() {
   const classes = useStyles();
+  const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
   return (
     <Container>
@@ -93,20 +94,18 @@ export default function DetailedAccordion() {
                           <UpdateIcon />
                         </Button>
                         <Menu {...bindMenu(popupState)}>
-                        <MenuItem onClick={popupState.close}>Pending</MenuItem>
-                          <MenuItem onClick={popupState.close}>Interviewed</MenuItem>
-                          <MenuItem onClick={popupState.close}>Thank you Letter Sent</MenuItem>
-                          <MenuItem onClick={popupState.close}>Received Offer</MenuItem>
-                          <MenuItem onClick={popupState.close}>Not Selected</MenuItem>
+                          {status.map((text) => (
+                            <MenuItem key={text} onClick={popupState.close}>{text}</MenuItem>
+                          ))}
                         </Menu>
                       </React.Fragment>
                     )}
                   </PopupState>
                 </div>
                 <div className={classes.column}>
-                    <Button>
-                      <DeleteForeverIcon onDelete={() => { }} />
-                    </Button>
+                  <Button>
+                    <DeleteForeverIcon onDelete={() => { }} />
+                  </Button>
                 </div>
                 <div className={clsx(classes.column, classes.helper)}>
                   <Typography variant="caption">
