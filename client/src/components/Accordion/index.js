@@ -93,9 +93,11 @@ export default function DetailedAccordion() {
                           <UpdateIcon />
                         </Button>
                         <Menu {...bindMenu(popupState)}>
-                          <MenuItem onClick={popupState.close}>Applied</MenuItem>
-                          <MenuItem onClick={popupState.close}>Pending</MenuItem>
+                        <MenuItem onClick={popupState.close}>Pending</MenuItem>
                           <MenuItem onClick={popupState.close}>Interviewed</MenuItem>
+                          <MenuItem onClick={popupState.close}>Thank you Letter Sent</MenuItem>
+                          <MenuItem onClick={popupState.close}>Received Offer</MenuItem>
+                          <MenuItem onClick={popupState.close}>Not Selected</MenuItem>
                         </Menu>
                       </React.Fragment>
                     )}
@@ -115,160 +117,6 @@ export default function DetailedAccordion() {
                 </div>
               </AccordionDetails>
             </Accordion>
-
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                id="accordionHeader"
-              >
-                <Typography>Company Name, Job Title</Typography>
-                <div className={classes.column}>
-                  <div className={classes.secondaryHeading}>Location</div>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails className={classes.details}>
-                <div className={classes.column}>
-                  <Typography>Status:</Typography>
-                </div>
-                <div className={classes.column}>
-                  <Typography>Applied</Typography>
-                </div>
-                <div className={classes.column}>
-                  <PopupState variant="popover" popupId="demo-popup-menu">
-                    {(popupState) => (
-                      <React.Fragment>
-                        <Button {...bindTrigger(popupState)}>
-                          <UpdateIcon />
-                        </Button>
-                        <Menu {...bindMenu(popupState)}>
-                          <MenuItem onClick={popupState.close}>Applied</MenuItem>
-                          <MenuItem onClick={popupState.close}>Pending</MenuItem>
-                          <MenuItem onClick={popupState.close}>Interviewed</MenuItem>
-                        </Menu>
-                      </React.Fragment>
-                    )}
-                  </PopupState>
-                </div>
-                <div className={clsx(classes.column, classes.helper)}>
-                  <Typography variant="caption">
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
-                      Review Job
-              </a><br />
-                  </Typography>
-                </div>
-              </AccordionDetails>
-              <Divider />
-              <AccordionActions>
-                <Button>
-                  <DeleteForeverIcon onDelete={() => { }} />
-                </Button>
-              </AccordionActions>
-            </Accordion>
-
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                id="accordionHeader"
-              >
-                <Typography>Company Name, Job Title</Typography>
-                <div className={classes.column}>
-                  <div className={classes.secondaryHeading}>Location</div>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails className={classes.details}>
-                <div className={classes.column}>
-                  <Typography>Status:</Typography>
-                </div>
-                <div className={classes.column}>
-                  <Typography>Applied</Typography>
-                </div>
-                <div className={classes.column}>
-                  <PopupState variant="popover" popupId="demo-popup-menu">
-                    {(popupState) => (
-                      <React.Fragment>
-                        <Button {...bindTrigger(popupState)}>
-                          <UpdateIcon />
-                        </Button>
-                        <Menu {...bindMenu(popupState)}>
-                          <MenuItem onClick={popupState.close}>Applied</MenuItem>
-                          <MenuItem onClick={popupState.close}>Pending</MenuItem>
-                          <MenuItem onClick={popupState.close}>Interviewed</MenuItem>
-                        </Menu>
-                      </React.Fragment>
-                    )}
-                  </PopupState>
-                </div>
-                <div className={clsx(classes.column, classes.helper)}>
-                  <Typography variant="caption">
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
-                      Review Job
-              </a><br />
-                  </Typography>
-                </div>
-              </AccordionDetails>
-              <Divider />
-              <AccordionActions>
-                <Button>
-                  <DeleteForeverIcon onDelete={() => { }} />
-                </Button>
-              </AccordionActions>
-            </Accordion>
-
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                id="accordionHeader"
-              >
-                <Typography>Company Name, Job Title</Typography>
-                <div className={classes.column}>
-                  <div className={classes.secondaryHeading}>Location</div>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails className={classes.details}>
-                <div className={classes.column}>
-                  <Typography>Status:</Typography>
-                </div>
-                <div className={classes.column}>
-                  <Typography>Applied</Typography>
-                </div>
-                <div className={classes.column}>
-                  <PopupState variant="popover" popupId="demo-popup-menu">
-                    {(popupState) => (
-                      <React.Fragment>
-                        <Button {...bindTrigger(popupState)}>
-                          <UpdateIcon />
-                        </Button>
-                        <Menu {...bindMenu(popupState)}>
-                          <MenuItem onClick={popupState.close}>Applied</MenuItem>
-                          <MenuItem onClick={popupState.close}>Pending</MenuItem>
-                          <MenuItem onClick={popupState.close}>Interviewed</MenuItem>
-                        </Menu>
-                      </React.Fragment>
-                    )}
-                  </PopupState>
-                </div>
-                <div className={clsx(classes.column, classes.helper)}>
-                  <Typography variant="caption">
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
-                      Review Job
-              </a><br />
-                  </Typography>
-                </div>
-              </AccordionDetails>
-              <Divider />
-              <AccordionActions>
-                <Button>
-                  <DeleteForeverIcon onDelete={() => { }} />
-                </Button>
-              </AccordionActions>
-            </Accordion>
-
 
           </div>
         </div>
