@@ -1,6 +1,8 @@
 import React, { Component, useState } from 'react';
 import API from './../../utils/API';
 // import Axios from 'axios';
+// import Card from './card';
+import ResponsiveDrawer from './../../components/SideBar/SideBar';
 import JobCard from "./jobCard";
 // import ResponsiveDrawer from './../../components/SideBar/SideBar';
 
