@@ -40,6 +40,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
+    "react": "^17.0.1",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "react-spring": "^8.0.27",
