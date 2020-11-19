@@ -11,7 +11,7 @@ module.exports = {
     db.UserBenchmark
       .findAll({
         where: {
-          UserId: req.query.userId
+          UserId: req.params.userId
         }
       }).then(userBenchmarks => res.json(userBenchmarks))
       .catch(err => console.log(err));
@@ -19,8 +19,8 @@ module.exports = {
   create: function (req, res) {
     db.UserBenchmark
       .create({
-        UserId: req.query.userId,
-        BenchmarkId: req.query.benchmarkId
+        UserId: req.params.userId,
+        BenchmarkId: req.params.benchmarkId
       }).then(benchmarks => res.json(benchmarks))
       .catch(err => console.log(err));
   }
