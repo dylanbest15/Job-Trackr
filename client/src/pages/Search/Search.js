@@ -13,20 +13,32 @@ function Search() {
         setSearch(event.target.value);
     }
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
+    function pageLoadSearch(event) {
+        // event.preventDefault();
         API.getJobs()
             .then(res => (setJobs(res.data.results) + console.log(res)))
 
             .catch(err => console.log(err));
     }
 
+    // filterJobs = (e) => {
+    //     e.preventDefault();
+    //     Axios
+    //         .get("https://www.googleapis.com/books/v1/volumes?q="+this.state.searchField)
+    //         .then((data) => {
+    //             console.log(data);
+    //             this.setState({books:data.data.items})
+    //         })
+    // }
+    pageLoadSearch();
     return (
         <>
             <div>
                 {/* <ResponsiveDrawer /> */}
                 <div className="container">
-                    <form onSubmit={handleFormSubmit}>
+                    {/* <form onSubmit={filterJobs()}> */}
+                    <form onSubmit={console.log("")}>
+
                         <h4>Book Search</h4>
                         <div className="row search-box">
                             <div className="col-12 search-input">
@@ -43,8 +55,8 @@ function Search() {
                         <hr></hr>
                         {jobs ? jobs.map(job => (
                             <JobCard
-                            key={job.id}
-                            jobInfo={job}
+                                key={job.id}
+                                jobInfo={job}
                             />
                         )) : null}
                     </div>
