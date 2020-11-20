@@ -9,19 +9,19 @@ export default {
 
   // Gets the application with the given userId and status
   getApplication: function (userId, status) {
-    return axios.get(`/api/application/${userId}/${status}`);
+    return axios.get(`/api/applications/${userId}/${status}`);
   },
 
   // Saves an application to the database
   saveApplication: function (applicationData) {
-    return axios.post("/api/application", applicationData);
+    return axios.post("/api/applications", applicationData);
   },
 
   updateApplicationStatus: function (userId, newStatus) {
-    return axios.put(`/api/application/${userId}`, newStatus);
+    return axios.put(`/api/applications/${userId}`, newStatus);
   },
 
   removeAppliaction: function (userId) {
-    return axios.delete(`/api/application/${userId}`);
+    return axios.delete(`/api/applications/${userId}`);
   }
 };
