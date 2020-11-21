@@ -5,13 +5,13 @@ const applicationController = require("../../controllers/applicationController")
 router.route("/")
   .post(applicationController.create);
 
-// Matches with /api/application/:userId
-router.route("/:userId")
+// Matches with /api/application/:UserId
+router.route("/:UserId")
   .put(applicationController.update)
   .delete(applicationController.remove);
 
-// Matches with /api/application/:userId/:status
-router.route("/:userId/:status")
+// Matches with /api/application/:UserId/:status
+router.route("/:UserId/:status")
   .get(applicationController.findByStatus);
 
 module.exports = router;

@@ -17,7 +17,7 @@ function Applied() {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        API.getApplication(job)
+        API.getApplication(userId)
             .then(res => setJobs(res.data))
             .catch(err => console.log(err));
             console.log(data);
@@ -26,13 +26,14 @@ function Applied() {
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-            { jobs ? job.map(application => (
+            <Accordion />
+            {/* { jobs ? job.map(application => (
                 <Accordion
                     key={application.userId}
                     VolumeInfo={application}
                     status={application.status}
                 />
-            )) : null}
+            )) : null} */}
 
         </div>
     )
