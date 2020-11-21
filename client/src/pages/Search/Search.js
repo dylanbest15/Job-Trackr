@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../utils/API';
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
-import JobCard from "./JobCard";
+import JobCard from "./JobCardComp";
 import "./search.css";
 
 // material ui component imports
