@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
-import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+//material ui component imports
+import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -56,10 +57,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DetailedAccordion() {
+export default function DetailedAccordion({ jobInfo }) {
   const classes = useStyles();
   const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
+  console.log({jobInfo});
   return (
     <Container>
       <div className={classes.root}>
@@ -73,10 +75,7 @@ export default function DetailedAccordion() {
                 id="accordionHeader"
               >
                 <div className={classes.column}>
-                  <Typography>Company Name, Job Title</Typography>
-                </div>
-                <div className={classes.column}>
-                  <div className={classes.secondaryHeading}>Location</div>
+                  <Typography>{jobInfo.company_name}, {jobInfo.job_title}</Typography>
                 </div>
               </AccordionSummary>
               <AccordionDetails className={classes.details}>
@@ -84,7 +83,7 @@ export default function DetailedAccordion() {
                   <Typography>Status:</Typography>
                 </div>
                 <div className={classes.column}>
-                  <Typography>Applied</Typography>
+                  <Typography>{jobInfo.status}</Typography>
                 </div>
                 <div className={classes.column}>
                   <PopupState variant="popover" popupId="demo-popup-menu">
@@ -109,7 +108,7 @@ export default function DetailedAccordion() {
                 </div>
                 <div className={clsx(classes.column, classes.helper)}>
                   <Typography variant="caption">
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
+                    <a href={jobInfo.job_link} className={classes.link}>
                       Review Job
               </a><br />
                   </Typography>

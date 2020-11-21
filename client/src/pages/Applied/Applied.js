@@ -4,6 +4,7 @@ import Accordion from '../../components/Accordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
 import { makeStyles } from '@material-ui/core';
 
+//styling
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -12,41 +13,30 @@ const useStyles = makeStyles((theme) => ({
 
 function Applied() {
 
+    //set classes
     const classes = useStyles();
-
+    //set states
     const [jobs, setJobs] = useState([]);
 
+    //use effect for api calls
     useEffect(() => {
         API.getApplications("1")
-        .then(res =>
-            setJobs(res.data) +
-            console.log(res.data)
-        )
+        .then(res => setJobs(res.data.map(job => (
+            job))))
         .catch(err => console.log(err));
-
     }, []);
 
-    // function loadApplications("1") {
-    //     API.getApplications()
-    //         .then(res =>
-    //             setJobs(res.data) +
-    //             console.log(data)
-    //         )
-    //         .catch(err => console.log(err));
-
-    // };
 
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-            <Accordion />
-            {/* { jobs ? job.map(application => (
-                <Accordion
-                    key={application.userId}
-                    VolumeInfo={application}
-                    status={application.status}
-                />
-            )) : null} */}
+            
+            {jobs ? jobs.map(job => (
+                    <Accordion
+                        key={job.id}
+                        jobInfo={job}
+                    />
+                )) : null}
 
         </div>
     )
