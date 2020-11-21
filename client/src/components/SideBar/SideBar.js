@@ -19,7 +19,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link  } from 'react-router-dom';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work'; 
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import SearchIcon from '@material-ui/icons/Search';
 import BusinessIcon from '@material-ui/icons/Business';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from "../../assets/logo.png"
@@ -61,6 +62,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const drawerArray = [
+    {
+    to: "/dashboard",
+    IconComponent: DashboardIcon,
+    text: "Dashboard",
+  },
+  {
+    to: "/applied",
+    IconComponent: WorkIcon,
+    text: "My Jobs",
+  },
+  {
+    to: "/dashboard",
+    IconComponent: EqualizerIcon,
+    text: "Dash-Benchmarks",
+  },
+  {
+    to: "/search",
+    IconComponent: SearchIcon,
+    text: "Search Jobs",
+  },
+  {
+    to: "/resources",
+    IconComponent: BusinessIcon,
+    text: "Resources",
+  },
+  {
+    to: "/dashboard",
+    IconComponent: AccountCircleIcon,
+    text: "Profile",
+  },
+]
+
 function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
@@ -78,42 +112,20 @@ function ResponsiveDrawer(props) {
         src={Logo}
         width="70"
         height="70"
+        marginLeft="50"
         alt="Job trackr Logo"
          />
       </div>
       <Divider />
       <List>
-      <ListItem button component={Link} to="/dashboard">
+      {drawerArray.map((listItem, index) => (
+        <ListItem button key={`drawerList-${index}`} component={Link} to={listItem.to}>
           <ListItemIcon>
-            <DashboardIcon style={{ color: blue[50] }} />
+            <listItem.IconComponent style={{ color: blue[50] }} />
           </ListItemIcon>
-          <ListItemText primary="Dashboard" />
+          <ListItemText primary={listItem.text} />
         </ListItem>
-        
-        <ListItem button component={Link} to="/applied">
-          <ListItemIcon>
-            <WorkIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Jobs" />
-        </ListItem>
-        <ListItem button component={Link} to="/applied">
-          <ListItemIcon>
-            <WorkOutlineIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Suggested Jobs" />
-        </ListItem>
-        <ListItem button component={Link} to="/resources">
-          <ListItemIcon>
-            <BusinessIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Resources" />
-        </ListItem>
-        <ListItem button component={Link} to="/dashboard">
-          <ListItemIcon>
-            <AccountCircleIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem>
+      ))}
       </List>
       <Divider />
       <List>
@@ -129,7 +141,6 @@ function ResponsiveDrawer(props) {
           </ListItemIcon>
           <ListItemText primary="Inbox" />
         </ListItem>
-        
       </List>
     </div>
   );
@@ -199,3 +210,37 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default ResponsiveDrawer;
+
+
+
+
+
+
+
+
+
+
+{/* <ListItem button component={Link} to="/applied">
+          <ListItemIcon>
+            <WorkIcon style={{ color: blue[50] }} />
+          </ListItemIcon>
+          <ListItemText primary="Jobs" />
+        </ListItem>
+        <ListItem button component={Link} to="/applied">
+          <ListItemIcon>
+            <WorkOutlineIcon style={{ color: blue[50] }} />
+          </ListItemIcon>
+          <ListItemText primary="Suggested Jobs" />
+        </ListItem>
+        <ListItem button component={Link} to="/resources">
+          <ListItemIcon>
+            <BusinessIcon style={{ color: blue[50] }} />
+          </ListItemIcon>
+          <ListItemText primary="Resources" />
+        </ListItem>
+        <ListItem button component={Link} to="/dashboard">
+          <ListItemIcon>
+            <AccountCircleIcon style={{ color: blue[50] }} />
+          </ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItem> */}
