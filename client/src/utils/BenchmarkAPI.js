@@ -14,6 +14,6 @@ export default {
 
   // create user benchmark
   createUserBenchmark: function(userId, benchmarkId) {
-    return axios.get(`/api/benchmarks/${userId}/${benchmarkId}`);
+    return axios.post(`/api/benchmarks/${userId}/${benchmarkId}`);
   }
 }
