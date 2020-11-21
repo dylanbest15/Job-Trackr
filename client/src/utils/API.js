@@ -3,12 +3,22 @@ import axios from "axios";
 export default {
 
   //The muse API
-  getJobs: function () {
-    return axios.get(`https://www.themuse.com/api/public/jobs?page=1&descending=true&api_key=60840d79a9a8595474a4ad33893e355617951561f109c1f69a474224e4e87fba`);
+  getJobs: function (category, location, page) {
+    const categoryString = category.replace(/ /g, "%20").replace("&", "%26");
+    const locationString = location.replace(",", "%C").replace(" ", "%20");
+    const apiKey = "60840d79a9a8595474a4ad33893e355617951561f109c1f69a474224e4e87fba";
+    const query = `category=${categoryString}&location=${locationString}&page=${page}&descending=true&api_key=${apiKey}`;
+    console.log(query);
+    return axios.get(`https://www.themuse.com/api/public/jobs?${query}`);
   },
 
-  // Gets the application with the given userId and status
-  getApplication: function (UserId, status) {
+  // Gets the applications with the given UserId
+  getApplications: function (UserId) {
+    return axios.get(`/api/applications/${UserId}`);
+  },
+
+  // Gets the applications with the given UserId and status
+  getApplicationsByStatus: function (UserId, status) {
     return axios.get(`/api/applications/${UserId}/${status}`);
   },
 
@@ -17,11 +27,13 @@ export default {
     return axios.post("/api/applications", applicationData);
   },
 
-  updateApplicationStatus: function (UserId, newStatus) {
-    return axios.put(`/api/applications/${UserId}`, newStatus);
+  // Updates status of an application
+  updateApplicationStatus: function (userId, newStatus) {
+    return axios.put(`/api/applications/${userId}`, newStatus);
   },
 
-  removeAppliaction: function (UserId) {
-    return axios.delete(`/api/applications/${UserId}`);
+  // Removes an application from the database
+  removeAppliaction: function (userId) {
+    return axios.delete(`/api/applications/${userId}`);
   }
 };

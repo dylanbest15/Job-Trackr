@@ -4,6 +4,8 @@ import Search from "./pages/Search/Search";
 import Register from "./pages/Register/Register";
 import Applied from "./pages/Applied/Applied";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Benchmarks from "./pages/Benchmarks/Benchmarks";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Articles from "./pages/Articles/Articles";
 // import Benchmark from "./pages/Benchmarks/Benchmarks";
@@ -22,6 +24,8 @@ function App() {
             <Route path="/applied" component={Applied} />
             {/* <Route path="/benchmarks" component={Benchmark} /> */}
             <Route path="/resources" component={Articles} />
+            <Route path="/benchmarks" component={Benchmarks} />
+
             {/* <Route path="/suggestedJobs" component={SuggestedJobs} /> */}
             {/* <Route path="/profile" component={Profile} /> */}
           </Switch>
