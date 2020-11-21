@@ -5,6 +5,8 @@ import Register from "./pages/Register/Register";
 import Applied from "./pages/Applied/Applied";
 import Pending from "./pages/Pending/Pending";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Benchmarks from "./pages/Benchmarks/Benchmarks";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Articles from "./pages/Articles/Articles";
 
@@ -22,6 +24,8 @@ function App() {
             <Route path="/pending" component={Pending} />
             <Route path="/applied" component={Applied} />
             <Route path="/resources" component={Articles} />
+            <Route path="/benchmarks" component={Benchmarks} />
+
             {/* <Route path="/suggestedJobs" component={SuggestedJobs} /> */}
             {/* <Route path="/profile" component={Profile} /> */}
           </Switch>
