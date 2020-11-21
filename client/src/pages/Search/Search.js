@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../utils/API';
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
-<<<<<<< HEAD
-import JobCard from "./JobCard";
-// import ResponsiveDrawer from './../../components/SideBar/SideBar';
-=======
 import JobCard from "./JobCardComp";
 import "./search.css";
->>>>>>> dade3dc811966675e0a142ff9e77fc0d9b7e3688
 
 // material ui component imports
 import InputLabel from '@material-ui/core/InputLabel';
