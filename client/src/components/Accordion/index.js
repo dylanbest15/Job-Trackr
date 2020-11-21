@@ -6,11 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionActions from '@material-ui/core/AccordionActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
@@ -58,10 +56,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DetailedAccordion({ jobInfo }) {
+
+  //import styles
   const classes = useStyles();
+
+  //job status menu items
   const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
-  console.log({jobInfo});
+  console.log({ jobInfo });
   return (
     <Container>
       <div className={classes.root}>

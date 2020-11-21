@@ -15,28 +15,29 @@ function Applied() {
 
     //set classes
     const classes = useStyles();
+
     //set states
     const [jobs, setJobs] = useState([]);
 
     //use effect for api calls
     useEffect(() => {
         API.getApplications("1")
-        .then(res => setJobs(res.data.map(job => (
-            job))))
-        .catch(err => console.log(err));
+            .then(res => setJobs(res.data.map(job => (
+                job))))
+            .catch(err => console.log(err));
     }, []);
 
 
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-            
+
             {jobs ? jobs.map(job => (
-                    <Accordion
-                        key={job.id}
-                        jobInfo={job}
-                    />
-                )) : null}
+                <Accordion
+                    key={job.id}
+                    jobInfo={job}
+                />
+            )) : null}
 
         </div>
     )
