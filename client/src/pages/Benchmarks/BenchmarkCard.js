@@ -40,7 +40,7 @@ LinearProgressWithLabel.propTypes = {
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
+        maxWidth: 275,
       },
       bullet: {
         display: 'inline-block',
@@ -84,8 +84,7 @@ function BenchmarkCard({ jobInfo }) {
           </Typography>
           <Typography variant="body2" component="p">
             You have now applied to Five jobs!
-            <br />
-            {'"a benevolent smile"'}
+
           </Typography>
           <div className={classes.root}>
                     <LinearProgressWithLabel value={progress} />
