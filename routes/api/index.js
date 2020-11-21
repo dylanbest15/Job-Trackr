@@ -1,5 +1,4 @@
 const router = require("express").Router();
-// const { default: API } = require("../../client/src/utils/API");
 const applicationRoutes = require("./applications");
 const benchmarkRoutes = require("./benchmarks");
 const thirdpartyconnection = require("./thirdpartyconnection");
