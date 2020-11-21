@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       unique: true,
       primaryKey: true
     },
+    job_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     job_title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -32,9 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     status: {
-      type: DataTypes.ENUM({
-        values: ["pending", "applied"]
-      }),
+      type: DataTypes.STRING,
       defaultValue: "pending",
       allowNull: false
     }
