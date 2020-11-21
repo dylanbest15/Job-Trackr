@@ -16,18 +16,25 @@ function Applied() {
 
     const [jobs, setJobs] = useState([]);
 
-    useEffect(async () => {
-        loadApplications();
+    useEffect(() => {
+        API.getApplications("1")
+        .then(res =>
+            setJobs(res.data) +
+            console.log(res.data)
+        )
+        .catch(err => console.log(err));
+
     }, []);
 
-    function loadApplications() {
-        API.getApplications()
-            .then(res =>
-                setJobs(res.data)
-            )
-            .catch(err => console.log(err));
-            console.log(data);
-    };
+    // function loadApplications("1") {
+    //     API.getApplications()
+    //         .then(res =>
+    //             setJobs(res.data) +
+    //             console.log(data)
+    //         )
+    //         .catch(err => console.log(err));
+
+    // };
 
     return (
         <div className={classes.root}>
