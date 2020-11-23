@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DetailedAccordion({ jobInfo }) {
+const AppliedAccordion = ({ jobInfo, setJobs }) => {
 
   //import styles
   const classes = useStyles();
@@ -63,7 +63,12 @@ export default function DetailedAccordion({ jobInfo }) {
   //job status menu items
   const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
-  console.log({ jobInfo });
+  //delete button event
+  const handleRemoveAppliaction = () => {
+    console.log(jobInfo);
+    setJobs(jobInfo.filter((el) => el.id !== jobInfo.job_id))
+  }
+
   return (
     <Container>
       <div className={classes.root}>
@@ -73,7 +78,6 @@ export default function DetailedAccordion({ jobInfo }) {
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
-                id="panel1a-header"
                 id="accordionHeader"
               >
                 <div className={classes.column}>
@@ -105,14 +109,14 @@ export default function DetailedAccordion({ jobInfo }) {
                 </div>
                 <div className={classes.column}>
                   <Button>
-                    <DeleteForeverIcon onDelete={() => { }} />
+                    <DeleteForeverIcon onClick={handleRemoveAppliaction} />
                   </Button>
                 </div>
                 <div className={clsx(classes.column, classes.helper)}>
                   <Typography variant="caption">
                     <a href={jobInfo.job_link} className={classes.link}>
                       Review Job
-              </a><br />
+                    </a>
                   </Typography>
                 </div>
               </AccordionDetails>
@@ -124,3 +128,5 @@ export default function DetailedAccordion({ jobInfo }) {
     </Container>
   );
 }
+
+export default AppliedAccordion;
