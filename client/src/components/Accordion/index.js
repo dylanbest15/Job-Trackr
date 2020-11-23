@@ -63,10 +63,14 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   //job status menu items
   const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
+  //change jobInfo object to an array of objects to use filter
+  const jobs = [jobInfo];
+
   //delete button event
   const handleRemoveAppliaction = () => {
     console.log(jobInfo);
-    setJobs(jobInfo.filter((el) => el.id !== jobInfo.job_id))
+    //filter array of job objects
+    setJobs(jobs.filter((el) => el.id !== jobInfo.job_id))
   }
 
   return (
