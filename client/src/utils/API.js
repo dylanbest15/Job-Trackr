@@ -27,12 +27,12 @@ export default {
   },
 
   // Updates status of an application
-  updateApplicationStatus: function (UserId, newStatus) {
-    return axios.put(`/api/applications/${UserId}`, newStatus);
+  updateApplicationStatus: function (id, newStatus) {
+    return axios.put(`/api/applications/${id}`, newStatus);
   },
 
   // Removes an application from the database
-  removeApplication: function (ApplicationId) {
-    return axios.delete(`/api/applications/${ApplicationId}`);
+  removeApplication: function (id) {
+    return axios.delete(`/api/applications/${id}`);
   }
 };

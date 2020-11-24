@@ -1,15 +1,16 @@
 import React from 'react';
 import './style.css';
-import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import API from '../../utils/API';
+
+//material ui component imports
+import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionActions from '@material-ui/core/AccordionActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
@@ -56,9 +57,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DetailedAccordion() {
+const AppliedAccordion = ({ jobInfo, setJobs }) => {
+
+  //import styles
   const classes = useStyles();
+
+  //job status menu items
   const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
+
+  //remove application
+  function handleRemoveApplication() {
+    API.removeApplication(jobInfo.id)
+      .then(API.getApplications("1")
+        .then(res => setJobs(res.data.map(job => (
+          job))))
+        .catch(err => console.log(err)));
+  }
 
   return (
     <Container>
@@ -69,14 +83,10 @@ export default function DetailedAccordion() {
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
-                id="panel1a-header"
                 id="accordionHeader"
               >
                 <div className={classes.column}>
-                  <Typography>Company Name, Job Title</Typography>
-                </div>
-                <div className={classes.column}>
-                  <div className={classes.secondaryHeading}>Location</div>
+                  <Typography>{jobInfo.company_name}, {jobInfo.job_title}</Typography>
                 </div>
               </AccordionSummary>
               <AccordionDetails className={classes.details}>
@@ -84,7 +94,7 @@ export default function DetailedAccordion() {
                   <Typography>Status:</Typography>
                 </div>
                 <div className={classes.column}>
-                  <Typography>Applied</Typography>
+                  <Typography>{jobInfo.status}</Typography>
                 </div>
                 <div className={classes.column}>
                   <PopupState variant="popover" popupId="demo-popup-menu">
@@ -104,14 +114,14 @@ export default function DetailedAccordion() {
                 </div>
                 <div className={classes.column}>
                   <Button>
-                    <DeleteForeverIcon onDelete={() => { }} />
+                    <DeleteForeverIcon onClick={handleRemoveApplication} />
                   </Button>
                 </div>
                 <div className={clsx(classes.column, classes.helper)}>
                   <Typography variant="caption">
-                    <a href="#secondary-heading-and-columns" className={classes.link}>
+                    <a href={jobInfo.job_link} className={classes.link}>
                       Review Job
-              </a><br />
+                    </a>
                   </Typography>
                 </div>
               </AccordionDetails>
@@ -123,3 +133,5 @@ export default function DetailedAccordion() {
     </Container>
   );
 }
+
+export default AppliedAccordion;
