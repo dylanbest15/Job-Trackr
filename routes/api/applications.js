@@ -9,6 +9,9 @@ router.route("/")
 router.route("/:UserId")
   .get(applicationController.findAll)
   .put(applicationController.update)
+
+//application id
+  router.route("/:id")
   .delete(applicationController.remove);
 
 // Matches with /api/applications/:UserId/:status
