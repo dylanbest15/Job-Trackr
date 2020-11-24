@@ -27,25 +27,15 @@ function Applied() {
             .catch(err => console.log(err));
     }, []);
 
-    //remove application from user's db
-    // function handleRemoveApplication(id) {
-    //     API.removeAppliaction(id)
-    //         .then(res => getApplications())
-    //         .catch(err => console.log(err));
-    // }
-
-
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
 
             {jobs ? jobs.map(job => (
                 <Accordion
-                    key={job.id}
                     jobInfo={job}
                     page="applied"
                     setJobs={setJobs}
-                    // handleRemoveApplication={handleRemoveApplication}
                 />
             )) : null}
 
