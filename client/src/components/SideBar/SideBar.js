@@ -74,9 +74,9 @@ const drawerArray = [
     text: "My Jobs",
   },
   {
-    to: "/dashboard",
+    to: "/benchmarks",
     IconComponent: EqualizerIcon,
-    text: "Dash-Benchmarks",
+    text: "Benchmarks",
   },
   {
     to: "/search",

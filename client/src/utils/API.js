@@ -32,7 +32,7 @@ export default {
   },
 
   // Removes an application from the database
-  removeAppliaction: function (UserId) {
-    return axios.delete(`/api/applications/${UserId}`);
+  removeApplication: function (ApplicationId) {
+    return axios.delete(`/api/applications/${ApplicationId}`);
   }
 };

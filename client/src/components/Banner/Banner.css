@@ -1,0 +1,9 @@
+#banner {
+    background: url(../../assets/mountain_background.jpg);
+    color: white;
+}
+
+.banner {
+    font-family: 'Permanent Marker', cursive;
+    font-size: large;
+}
