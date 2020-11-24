@@ -33,6 +33,7 @@ function Applied() {
 
             {jobs ? jobs.map(job => (
                 <Accordion
+                    key={job.id}
                     jobInfo={job}
                     page="applied"
                     setJobs={setJobs}
