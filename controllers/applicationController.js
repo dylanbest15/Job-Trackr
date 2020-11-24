@@ -36,6 +36,7 @@ module.exports = {
         .catch(err => console.log(err));
   },
   remove: function (req, res) {
+    console.log(req.params.id);
     db.Application
       .destroy({
         where: {
