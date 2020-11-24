@@ -11,7 +11,9 @@ module.exports = {
   signupUser: function (req, res) {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname
     })
       .then(() => {
         res.redirect(307, "/api/passport/login");
