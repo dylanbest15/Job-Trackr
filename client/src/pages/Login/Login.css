@@ -48,18 +48,25 @@ button {
 .signin-logo {
     height: 250px;
     width: 50%;
-    margin-top: -15px;
+    margin-top: -30px;
+
+}
+.register-logo {
+    height: 250px;
+    width: 50%;
+    margin-top: -80px;
 
 }
 .title {
-    margin-top: -20px;
+    margin-top: -50px;
+    margin-bottom: 10px;
 	font-weight: bold;
     font-size: 50px;
-    margin-bottom: 10px;
 }
-.login-title, .registerTitle {
-    margin-top: -20px;
-    margin-bottom: 25px;
+
+.loginTitle{
+    margin-top: -30px;
+    margin-bottom: 50px;
 	font-weight: bold;
     font-size: 50px;
 }
@@ -87,8 +94,13 @@ button {
 
 }
 
-div.login-container, div.signupJumbo {
+div.login-container, div.signupJumbo, div.loginJumbo {
     width: 500px;
+  }
+.signupJumbo {
+    margin-top: 5px;
+    height:575px;
+
   }
 
   input[type=text], input[type=password] {
@@ -130,7 +142,7 @@ input[type=checkbox] {
     width: 45%;
 }
 @media only screen and (max-width: 565px) {
-    div.login-container, div.signupJumbo {
+    div.login-container, div.signupJumbo, div.loginJumbo {
         width: 300px;
     }
     input[type=text], input[type=password], input[type=date] {

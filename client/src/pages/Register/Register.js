@@ -7,7 +7,7 @@ function Register() {
     <div className="main-content login-bg">
       <div className="signupJumbo box">
         <div className="container singupContain">
-          <img className="signin-logo" src={logo} alt="eye logo" />
+          <img className="register-logo" src={logo} alt="eye logo" />
 
           <Spring
             from={{ opacity: 0 }}
@@ -28,8 +28,10 @@ function Register() {
             {props => (
               <div style={props}>
                 <form>
-                  <input type="text" placeholder="email" id="email" />
-                  <input type="password" placeholder="password" id="password" />
+                  <input type="text" placeholder="First Name" id="firstName" />
+                  <input type="text" placeholder="Last Name" id="lastName" />
+                  <input type="text" placeholder="Email" id="email" />
+                  <input type="password" placeholder="Password" id="password" />
                 </form>
                 <a className="signUpHere" href="/">Sign In Here</a>
               </div>
@@ -53,6 +55,6 @@ function Register() {
       </div>
     </div>
 
-    );
-  };
+  );
+};
 export default Register;
