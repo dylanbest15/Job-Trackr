@@ -17,8 +17,8 @@ export default {
   },
 
   // Gets the applications with the given UserId and status
-  getApplicationsByStatus: function (UserId, status) {
-    return axios.get(`/api/applications/${UserId}/${status}`);
+  getApplicationsByStatus: function (id, status) {
+    return axios.get(`/api/applications/${id}/${status}`);
   },
 
   // Saves an application to the database
@@ -27,8 +27,8 @@ export default {
   },
 
   // Updates status of an application
-  updateApplicationStatus: function (id, newStatus) {
-    return axios.put(`/api/applications/${id}`, newStatus);
+  updateApplicationStatus: function (id, status) {
+    return axios.put(`/api/applications/${id}/${status}`);
   },
 
   // Removes an application from the database

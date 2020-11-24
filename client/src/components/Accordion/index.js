@@ -63,7 +63,16 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   const classes = useStyles();
 
   //job status menu items
-  const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
+  const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
+
+  //update application status
+  function updateStatus() {
+    API.getApplicationsByStatus(jobInfo.id, jobInfo.status)
+      .then(console.log("button clicked"))
+      .then(API.updateApplicationStatus(jobInfo.id, jobInfo.status))
+      .then(console.log(jobInfo.id, jobInfo.status))
+      .catch(err => console.log(err));
+    }
 
   //remove application
   function handleRemoveApplication() {
@@ -104,8 +113,8 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
                           <UpdateIcon />
                         </Button>
                         <Menu {...bindMenu(popupState)}>
-                          {status.map((text) => (
-                            <MenuItem key={text} onClick={popupState.close}>{text}</MenuItem>
+                          {statusList.map((text) => (
+                            <MenuItem key={text} onClick={updateStatus}>{text}</MenuItem>
                           ))}
                         </Menu>
                       </React.Fragment>
