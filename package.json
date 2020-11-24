@@ -36,6 +36,7 @@
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "react-google-charts": "^3.0.15",
     "sequelize": "^6.3.5"
   },
   "bugs": {
