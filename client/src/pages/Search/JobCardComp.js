@@ -40,14 +40,16 @@ function JobCard({ jobInfo, applied }) {
         <div className="card">
             <div className="card-body">
                 <h4 className="card-title">{jobInfo.title}</h4>
-                <h4>{jobInfo.company_name}</h4>
+                <h4 className="card-subtitle">{jobInfo.company_name}</h4>
                 {shown ? <div dangerouslySetInnerHTML={createMarkup()}></div> : null}
 
 
-                {!shown ? <button className="btn btn-primary" onClick={handleShown}>Show more</button> : null}
-                {shown ? <button className="btn btn-primary" onClick={handleShown}>Show less</button> : null}
-                <button className="btn btn-primary" onClick={handleSave}>Apply now!</button>
+                {!shown ? <button className="btn searchBtn btn-primary" onClick={handleShown}>Show more</button> : null}
+                {shown ? <button className="btn searchBtn btn-primary" onClick={handleShown}>Show less</button> : null}
+                <button className="btn searchBtn btn-primary" onClick={handleSave}>Apply now!</button>
             </div>
+            <hr/>
+            <br/>
         </div>
     )
 }

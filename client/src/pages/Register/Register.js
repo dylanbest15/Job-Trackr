@@ -36,7 +36,7 @@ function Register() {
     <div className="main-content login-bg">
       <div className="signupJumbo box">
         <div className="container singupContain">
-          <img className="signin-logo" src={logo} alt="eye logo" />
+          <img className="register-logo" src={logo} alt="eye logo" />
 
           <Spring
             from={{ opacity: 0 }}

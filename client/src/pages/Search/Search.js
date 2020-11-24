@@ -3,6 +3,8 @@ import API from '../../utils/API';
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
 import JobCard from "./JobCardComp";
 import "./search.css";
+import logo from '../../assets/logo.png';
+
 
 // material ui component imports
 import InputLabel from '@material-ui/core/InputLabel';
@@ -52,6 +54,10 @@ function Search() {
 
             <ResponsiveDrawer />
             <div className="container search-container">
+                <div className="categoryDiv">
+                <img className="search-logo" src={logo} alt="eye logo" />
+                    <h1 className="searchTitle">Search Page</h1><br/>
+                    <h1 className="searchSubTitle">Search for remote jobs by Category and<br/>use "Apply Now!" to save the job</h1>
 
                 <FormControl variant="outlined">
                     <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
@@ -69,6 +75,8 @@ function Search() {
                     <Button variant="contained" onClick={handleSearch}>Search</Button>
 
                 </FormControl>
+                </div>
+                <hr/>
 
                 {jobs ? jobs.map(job => (
                     <JobCard

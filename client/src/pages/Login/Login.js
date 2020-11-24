@@ -36,7 +36,7 @@ function Login() {
 
   return (
     <div className="main-content login-bg">
-      <div className="signupJumbo box">
+      <div className="loginJumbo box">
         <div className="container singupContain">
           <img className="signin-logo" src={logo} alt="eye logo" />
 
@@ -47,7 +47,7 @@ function Login() {
           >
             {props => (
               <div style={props}>
-                <h1 className="title registerTitle">JOB TRACKR</h1>
+                <h1 className="title loginTitle">JOB TRACKR</h1>
               </div>
             )}
           </Spring>
