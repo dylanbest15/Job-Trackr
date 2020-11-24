@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 
-function JobCard({ jobInfo, city, state, applied }) {
+function JobCard({ jobInfo, applied }) {
 
     // set states
     const [shown, setShown] = useState(false);
 
     // event functions
     function createMarkup() {
-        return { __html: jobInfo.contents };
+        return { __html: jobInfo.description };
     }
 
     function handleShown() {
@@ -17,7 +17,7 @@ function JobCard({ jobInfo, city, state, applied }) {
 
     function handleSave(event) {
         event.preventDefault();
-        window.open(jobInfo.refs.landing_page);
+        window.open(jobInfo.url);
 
         // only add to database if it doesn't exist in applied array
         if (!applied.includes(jobInfo.id.toString())) {
@@ -26,11 +26,9 @@ function JobCard({ jobInfo, city, state, applied }) {
             // save application to database
             API.saveApplication({
                 job_id: jobInfo.id,
-                job_title: jobInfo.name,
-                company_name: jobInfo.company.name,
-                city: city,
-                state: state,
-                job_link: jobInfo.refs.landing_page,
+                job_title: jobInfo.title,
+                company_name: jobInfo.company_name,
+                job_link: jobInfo.url,
                 status: "pending",
                 UserId: "abc123"
             }).then(res => console.log(res))
@@ -41,10 +39,9 @@ function JobCard({ jobInfo, city, state, applied }) {
     return (
         <div className="card">
             <div className="card-body">
-                <h4 className="card-title">{jobInfo.name}</h4>
-                <h4>{jobInfo.company.name}</h4>
+                <h4 className="card-title">{jobInfo.title}</h4>
+                <h4>{jobInfo.company_name}</h4>
                 {shown ? <div dangerouslySetInnerHTML={createMarkup()}></div> : null}
-                <h4>{jobInfo.locations[0].name}</h4>
 
 
                 {!shown ? <button className="btn btn-primary" onClick={handleShown}>Show more</button> : null}
