@@ -31,12 +31,11 @@ export default function RecentJobsTable() {
 
     return (
         <div>
-            {/* title not aligning properly */}
+            <div className="header">
+                <h1>Recent Jobs</h1>
+            </div>
             <Row className="yourJobsHeader">
-                <Col align="left">
-                    <h3>Your <b>Jobs</b></h3>
-                </Col>
-                <Col align="right">
+                <Col align="center">
                     <a href="/applied">View All</a>
                 </Col>
             </Row>
