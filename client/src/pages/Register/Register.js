@@ -6,10 +6,20 @@ import API from "../../utils/PassportAPI";
 function Register() {
 
   // set states
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // event handlers
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  }
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  }
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   }
@@ -27,7 +37,9 @@ function Register() {
     // run api sign up
     API.signupUser({
       email: email,
-      password: password
+      password: password,
+      firstname: firstName,
+      lastname: lastName
     }).then(() => window.location.replace("/dashboard"))
       .catch(err => console.log(err));
   }
@@ -57,8 +69,10 @@ function Register() {
             {props => (
               <div style={props}>
                 <form onSubmit={handleFormSubmit}>
-                  <input type="text" placeholder="email" id="email" onChange={handleEmailChange}/>
-                  <input type="password" placeholder="password" id="password" onChange={handlePasswordChange}/>
+                  <input type="text" placeholder="first name" id="firstName" onChange={handleFirstNameChange}/>
+                  <input type="text" placeholder="last name" id="lastName" onChange={handleLastNameChange}/>
+                  <input type="text" placeholder="email" id="email" onChange={handleEmailChange} />
+                  <input type="password" placeholder="password" id="password" onChange={handlePasswordChange} />
                   <a className="signUpHere" href="/">Sign In Here</a>
                   <Spring
                     from={{ opacity: 0 }}
