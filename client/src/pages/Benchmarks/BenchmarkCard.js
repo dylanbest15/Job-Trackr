@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import API from "../../utils/API";
+import API from "./../../utils/BenchmarkAPI";
 
 
 function LinearProgressWithLabel(props) {
@@ -57,7 +57,7 @@ const useStyles = makeStyles({
 
 
 
-function BenchmarkCard({ jobInfo }) {
+function BenchmarkCard({ originalBenchmarkInfo }) {
     const classes = useStyles();
     const [progress, setProgress] = React.useState(0);
 
@@ -73,17 +73,18 @@ function BenchmarkCard({ jobInfo }) {
         setProgress(oldProgress)
     }
     return (
+        
         <Card className={classes.root}>
         <CardContent>
 
           <Typography variant="h5" component="h2">
-            Apply to Five jobs
+            {originalBenchmarkInfo.name}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
             Benchmark
           </Typography>
           <Typography variant="body2" component="p">
-            You have now applied to Five jobs!
+          {originalBenchmarkInfo.description}
 
           </Typography>
           <div className={classes.root}>
@@ -91,9 +92,6 @@ function BenchmarkCard({ jobInfo }) {
                 </div>
                 <button onClick={updateProgress} className="btn btn-primary">Save</button>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
 
         
