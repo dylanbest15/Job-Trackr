@@ -24,19 +24,21 @@ const useStyles = makeStyles((theme) => ({
  function SankeyDiagram (props) {
     const classes = useStyles();
 
-    const [data, setResult] = useState([]);
+    const [data, setGraph] = useState([]);
 
     useEffect(() => {
        API.getUserData()
-       .then(res => setResult(res.data))
+       .then(res => setGraph(res.data))
        .catch(err => console.log(err));
        }, []); 
        console.log(data);
+       console.log(data.jobs_pending - data.jobs_applied);
   
     return (
       <div className={classes.root}>
         <main className={classes.content}>
          <div className={classes.toolbar}/>
+
         <Chart
             width={600}
             height={'300px'}
@@ -45,13 +47,28 @@ const useStyles = makeStyles((theme) => ({
             data={[
               ['From', 'To', 'Weight'],
               // ['Pending', 'Applied', 3],
-              ['Applied', 'Interview', 10],
+              ['Applied', 'Interview', data.jobs_pending],
               ['Applied', 'Denied', 4],
               ['Interview', 'Letter', 2],
               ['Interview', 'Offer', 2],
               ['Interview', 'Denied', 3],
               ['Offer', 'Acceptance', 1],
               ['Offer', 'Denied', 1],
+
+              // id: req.user.id,
+              // email: req.user.email,
+              // firstname: req.user.firstname,
+              // lastname: req.user.lastname,
+              // jobs_pending: req.user.jobs_pending,
+              // jobs_applied: req.user.jobs_applied,
+              // jobs_interviewed: req.user.jobs_interviewed,
+              // jobs_lettersent: req.user.jobs_lettersent,
+              // jobs_offered: req.user.jobs_offered,
+              // jobs_rejected: req.user.jobs_rejected,
+              // createdAt: req.user.createdAt,
+              // updatedAt: req.user.updatedAt
+
+
             // ['From', 'To', 'Weight'],
             // ['Brazil', 'Portugal', 5],
             // ['Brazil', 'France', 1],
