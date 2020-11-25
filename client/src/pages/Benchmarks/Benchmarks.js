@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BenchmarkCard from "./BenchmarkCard";
+import Grid from '@material-ui/core/Grid';
 import API from './../../utils/BenchmarkAPI';
+import ResponsiveDrawer from './../../components/SideBar/SideBar';
+
 
 // import benchmarks API
 
@@ -13,6 +16,7 @@ function Benchmarks() {
     // get benchmarks
     // set benchmarks to benchmarks array
     loadBenchmarks();
+    loadUserBenchmarks();
     // get user benchmarks
     // set user benchmarks to user benchmark array
   })
@@ -23,18 +27,30 @@ function Benchmarks() {
       )
       .catch(err => console.log(err));
   };
+  function loadUserBenchmarks() {
+    API.getUserBenchmarks()
+      .then(res =>
+        setUserBenchmarks(res.data)
+      )
+      .catch(err => console.log(err));
+  };
   return (
     <>
+      <ResponsiveDrawer />
+
       <div className="container search-container">
 
         <h1>Benchmarks</h1>
-
-        {originalBenchmarks ? originalBenchmarks.map(originalBenchmark => (
-          <BenchmarkCard
-            key={originalBenchmark.id}
-            originalBenchmarkInfo={originalBenchmark}
-          />
-        )) : null}
+        <Grid container spacing={24}>
+          {originalBenchmarks ? originalBenchmarks.map(originalBenchmark => (
+            <Grid item md={3}>
+              <BenchmarkCard
+                key={originalBenchmark.id}
+                originalBenchmarkInfo={originalBenchmark}
+              />
+            </Grid>
+          )) : null}
+        </Grid>
       </div>
 
     </>
