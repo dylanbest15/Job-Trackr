@@ -28,12 +28,17 @@ module.exports = {
   },
   update: function (req, res) {
     db.Application
-      .update({ status: req.query.status }), {
-        where: {
-          id: req.params.id
-        }
-      }.then(application => res.json(application))
-        .catch(err => console.log(err));
+      .update(
+        {
+          status:
+            req.query.status
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }).then(application => res.json(application))
+          .catch(err => console.log(err));
   },
   remove: function (req, res) {
     console.log(req.params.id);
