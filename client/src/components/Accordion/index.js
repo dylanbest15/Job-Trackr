@@ -1,10 +1,9 @@
 import React from 'react';
 import './style.css';
-import clsx from 'clsx';
 import API from '../../utils/API';
-
-//material ui component imports
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -16,7 +15,6 @@ import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { Container } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -65,14 +63,12 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   //job status menu items
   const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
-  //update application status
+// update application status
   function updateStatus() {
-    API.getApplicationsByStatus(jobInfo.id, jobInfo.status)
-      .then(console.log("button clicked"))
-      .then(API.updateApplicationStatus(jobInfo.id, jobInfo.status))
-      .then(console.log(jobInfo.id, jobInfo.status))
+    API.updateApplicationStatus(jobInfo.status)
+      .then(console.log("button clicked, job id and status =", jobInfo.id, jobInfo.status))
       .catch(err => console.log(err));
-    }
+  }
 
   //remove application
   function handleRemoveApplication() {
@@ -84,11 +80,11 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   }
 
   return (
-    <Container>
+    <>
       <div className={classes.root}>
         <div className={classes.content}>
           <div className={classes.toolbar}>
-            <Accordion defaultExpanded>
+            <Accordion default>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -135,11 +131,10 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
                 </div>
               </AccordionDetails>
             </Accordion>
-
           </div>
         </div>
       </div>
-    </Container>
+    </>
   );
 }
 
