@@ -63,7 +63,7 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   const classes = useStyles();
 
   //job status menu items
-  const status = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
+  const status = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
 
   //remove application
   function handleRemoveApplication() {
