@@ -3,7 +3,6 @@ import './style.css';
 import API from '../../utils/API';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -64,9 +63,10 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
 // update application status
-  function updateStatus() {
-    API.updateApplicationStatus(jobInfo.status)
-      .then(console.log("button clicked, job id and status =", jobInfo.id, jobInfo.status))
+  function updateStatus(event) {
+    API.updateApplicationStatus(jobInfo.status = statusList[event.target.value])
+    .then(console.log(jobInfo.status))
+      .then(console.log("button clicked", jobInfo.id, statusList[event.target.value]))
       .catch(err => console.log(err));
   }
 
@@ -109,8 +109,8 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
                           <UpdateIcon />
                         </Button>
                         <Menu {...bindMenu(popupState)}>
-                          {statusList.map((text) => (
-                            <MenuItem key={text} onClick={updateStatus}>{text}</MenuItem>
+                          {statusList.map((text, index) => (
+                            <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
                           ))}
                         </Menu>
                       </React.Fragment>
