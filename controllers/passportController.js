@@ -48,5 +48,21 @@ module.exports = {
         updatedAt: req.user.updatedAt
       });
     }
+  },
+  incrementUserValue: function (req, res) {
+    db.User.increment({ [req.params.value]: 1 }, {
+      where: {
+        id: req.params.UserId
+      }
+    }).then(response => res.json(response))
+      .catch(err => console.log(err));
+  },
+  decrementUserValue: function (req, res) {
+    db.User.increment({ [req.params.value]: -1 }, {
+      where: {
+        id: req.params.UserId
+      }
+    }).then(response => res.json(response))
+      .catch(err => console.log(err));
   }
 }

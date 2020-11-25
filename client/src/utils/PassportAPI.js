@@ -17,7 +17,16 @@ export default {
     return axios.get("/api/passport/logout");
   },
 
+  // return user data
   getUserData: function() {
-    return axios.get("/api/passport/user_data")
+    return axios.get("/api/passport/user_data");
+  },
+
+  incrementUserValue: function(value, UserId) {
+    return axios.get(`/api/passport/increment/${value}/${UserId}`);
+  },
+
+  decrementUserValue: function(value, UserId) {
+    return axios.get(`/api/passport/decrement/${value}/${UserId}`);
   }
 }
