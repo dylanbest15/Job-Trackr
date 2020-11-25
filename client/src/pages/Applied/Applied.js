@@ -30,16 +30,16 @@ function Applied() {
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-
-            {jobs ? jobs.map(job => (
-                <Accordion
-                    key={job.id}
-                    jobInfo={job}
-                    page="applied"
-                    setJobs={setJobs}
-                />
-            )) : null}
-
+            <div>
+                {jobs ? jobs.map(job => (
+                    <Accordion
+                        key={job.id}
+                        jobInfo={job}
+                        page="applied"
+                        setJobs={setJobs}
+                    />
+                )) : null}
+            </div>
         </div>
     )
 };
