@@ -44,6 +44,8 @@ module.exports = {
         jobs_lettersent: req.user.jobs_lettersent,
         jobs_offered: req.user.jobs_offered,
         jobs_rejected: req.user.jobs_rejected,
+        jobs_noresponse: req.user.jobs_noresponse,
+        jobs_accepted: req.user.jobs_accepted,
         createdAt: req.user.createdAt,
         updatedAt: req.user.updatedAt
       });
