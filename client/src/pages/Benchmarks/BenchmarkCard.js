@@ -101,7 +101,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo}) {
             {originalBenchmarkInfo.name}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-          {/* {originalBenchmarkInfo.value} and {userInfo.jobs_accepted} */}
+          {userInfo.jobs_accepted}
 
           </Typography>
           <Typography variant="body2" component="p">
