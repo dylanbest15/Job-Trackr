@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import BenchmarkCard from "./BenchmarkCard";
 import Grid from '@material-ui/core/Grid';
 import API from './../../utils/BenchmarkAPI';
+import API2 from './../../utils/PassportAPI';
+
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
 
 
@@ -19,7 +21,7 @@ function Benchmarks() {
     loadUserBenchmarks();
     // get user benchmarks
     // set user benchmarks to user benchmark array
-  })
+  }, [])
   function loadBenchmarks() {
     API.getBenchmarks()
       .then(res =>
@@ -28,11 +30,12 @@ function Benchmarks() {
       .catch(err => console.log(err));
   };
   function loadUserBenchmarks() {
-    API.getUserBenchmarks()
+    API2.getUserData()
       .then(res =>
-        setUserBenchmarks(res.data)
+        setUserBenchmarks(res.data) + console.log(res.data)
       )
       .catch(err => console.log(err));
+      console.log(userBenchmarks);
   };
   return (
     <>
@@ -41,12 +44,14 @@ function Benchmarks() {
       <div className="container search-container">
 
         <h1>Benchmarks</h1>
+        
         <Grid container spacing={24}>
           {originalBenchmarks ? originalBenchmarks.map(originalBenchmark => (
             <Grid item md={3}>
               <BenchmarkCard
                 key={originalBenchmark.id}
                 originalBenchmarkInfo={originalBenchmark}
+                userInfo={userBenchmarks}
               />
             </Grid>
           )) : null}
