@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppliedAccordion = ({ jobInfo, setJobs }) => {
+const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }) => {
 
   //import styles
   const classes = useStyles();
@@ -62,19 +62,11 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   //job status menu items
   const statusList = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
 
-  //set states
-  const [status, setStatus] = useState([]);
-
-  useEffect(() => {
-    // update application status in db
-    API.updateApplicationStatus(jobInfo.id, jobInfo.status)
-      .then(res => setStatus(res.data))
-      .catch(err => console.log(err));
-  }, [updateStatus]);
-
   // event function to set application status on click
   function updateStatus(event) {
-    setStatus(jobInfo.status = statusList[event.target.value])
+    API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
+      .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
+      .catch(err => console.log(err));
   }
 
   //remove application

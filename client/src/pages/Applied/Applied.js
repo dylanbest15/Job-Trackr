@@ -19,6 +19,12 @@ function Applied() {
     //set states
     const [jobs, setJobs] = useState([]);
 
+    //manage state to update status of job in accordion
+    const handleJobStatusUpdate = (index, status) => {
+        const updatedJobs = [...jobs];
+        updatedJobs[index].status = status
+        setJobs(updatedJobs);
+    }
     //use effect for api calls
     useEffect(() => {
         API.getApplications("1")
@@ -31,12 +37,14 @@ function Applied() {
         <div className={classes.root}>
             <ResponsiveDrawer />
             <div>
-                {jobs ? jobs.map(job => (
+                {jobs ? jobs.map((job, index) => (
                     <Accordion
                         key={job.id}
+                        indexPosition={index}
                         jobInfo={job}
                         page="applied"
                         setJobs={setJobs}
+                        onJobStatusUpdate={handleJobStatusUpdate}
                     />
                 )) : null}
             </div>
