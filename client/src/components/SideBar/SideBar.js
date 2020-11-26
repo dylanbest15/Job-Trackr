@@ -112,7 +112,6 @@ function ResponsiveDrawer(props) {
         src={Logo}
         width="70"
         height="70"
-        marginLeft="50"
         alt="Job trackr Logo"
          />
       </div>
