@@ -46,9 +46,9 @@ export default function Banner() {
   return (
     <Grid item xs={12}>
             <Paper className={classes.paper} id="banner">
-              <h1 className="banner">Hello,</h1>
-              <p className="banner"><b>{firstName}</b></p>
-              <p className="banner">{randomIntro}</p>
+              <h1 className="banner">Hello, {firstName}</h1>
+              {/* <p className="banner"><b>{firstName}</b></p> */}
+              <h1 className="banner">{randomIntro}</h1>
             </Paper>
           </Grid>
   );

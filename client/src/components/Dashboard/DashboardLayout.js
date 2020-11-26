@@ -8,6 +8,7 @@ import "../Dashboard/DashboardLayout.css";
 import Avatar from '@material-ui/core/Avatar';
 import { deepOrange, deepPurple, blue } from '@material-ui/core/colors';
 import Banner from '../Banner/Banner';
+import SankeyDiagram from '../SankeyDiagram/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,12 +78,13 @@ export default function FullWidthGrid() {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Paper className={classes.paper}>
+          <SankeyDiagram />
+            {/* <Paper className={classes.paper}>
               <h3>Recent Job Searches</h3>
               <p>link to recently searched job title</p>
               <p>link to recently searched job title</p>
               <p>link to recently searched job title</p>
-            </Paper>
+            </Paper> */}
           </Grid>
         </Grid>
       </div>
