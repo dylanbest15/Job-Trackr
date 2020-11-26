@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from '../../assets/logo.png';
 import { Spring } from 'react-spring/renderprops'
 import API from "../../utils/PassportAPI";
 import { userContext } from "../../App";
 
 
-function Register() {
+function Register({ history }) {
 
   // set states
   const [firstName, setFirstName] = useState("");

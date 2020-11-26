@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 export default function FullWidthGrid() {
   const classes = useStyles();
 
+
+
   return (
     <Container>
       <div className={classes.root}>
@@ -78,13 +80,12 @@ export default function FullWidthGrid() {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
-          <SankeyDiagram />
-            {/* <Paper className={classes.paper}>
+            <Paper className={classes.paper}>
               <h3>Recent Job Searches</h3>
               <p>link to recently searched job title</p>
               <p>link to recently searched job title</p>
               <p>link to recently searched job title</p>
-            </Paper> */}
+            </Paper>
           </Grid>
         </Grid>
       </div>

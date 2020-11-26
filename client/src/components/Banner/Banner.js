@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import "../Banner/Banner.css";
-import API from '../../utils/PassportAPI';
+import { userContext } from "../../App";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,18 +35,12 @@ const randomIntro = intros[Math.floor(Math.random()*intros.length)];
 export default function Banner() {
   const classes = useStyles();
 
-  const [firstName, setFirstName] = useState("");
-
-  useEffect(() => {
-    API.getUserData()
-    .then(res => setFirstName(res.data.firstname) + console.log(res))
-    .catch(err => console.log(err))
-  },[])
+  const { user } = useContext(userContext);
 
   return (
     <Grid item xs={12}>
             <Paper className={classes.paper} id="banner">
-              <h1 className="banner">Hello, {firstName}</h1>
+              <h1 className="banner">Hello, {user.firstname}</h1>
               {/* <p className="banner"><b>{firstName}</b></p> */}
               <h1 className="banner">{randomIntro}</h1>
             </Paper>
