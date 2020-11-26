@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import API from '../../utils/API';
 import clsx from 'clsx';
@@ -62,12 +62,19 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   //job status menu items
   const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
 
-// update application status
-  function updateStatus(event) {
-    API.updateApplicationStatus(jobInfo.status = statusList[event.target.value])
-    .then(console.log(jobInfo.status))
-      .then(console.log("button clicked", jobInfo.id, statusList[event.target.value]))
+  //set states
+  const [status, setStatus] = useState([]);
+
+  useEffect(() => {
+    // update application status in db
+    API.updateApplicationStatus(jobInfo.id, jobInfo.status)
+      .then(res => setStatus(res.data))
       .catch(err => console.log(err));
+  }, []);
+
+  // event function to set application status on click
+  function updateStatus(event) {
+    setStatus(jobInfo.status = statusList[event.target.value]);
   }
 
   //remove application
