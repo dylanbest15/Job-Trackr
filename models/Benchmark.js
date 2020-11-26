@@ -19,6 +19,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    type: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    value: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
   });
 
   return Benchmark;
