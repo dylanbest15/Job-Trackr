@@ -4,8 +4,18 @@ const passport = require("../config/passport");
 module.exports = {
   loginUser: function (req, res) {
     res.json({
+      id: req.user.id,
       email: req.user.email,
-      id: req.user.id
+      firstname: req.user.firstname,
+      lastname: req.user.lastname,
+      jobs_pending: req.user.jobs_pending,
+      jobs_applied: req.user.jobs_applied,
+      jobs_interviewed: req.user.jobs_interviewed,
+      jobs_lettersent: req.user.jobs_lettersent,
+      jobs_offered: req.user.jobs_offered,
+      jobs_rejected: req.user.jobs_rejected,
+      jobs_noresponse: req.user.jobs_noresponse,
+      jobs_accepted: req.user.jobs_accepted
     });
   },
   signupUser: function (req, res) {

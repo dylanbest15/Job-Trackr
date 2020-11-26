@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from '../../assets/logo.png';
 import './Login.css';
 import { Spring } from 'react-spring/renderprops'
 import API from "../../utils/PassportAPI";
+import { userContext } from "../../App";
 
-function Login() {
+function Login({ history }) {
 
   // set states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUser } = useContext(userContext);
 
   // event handlers
   const handleEmailChange = (event) => {
@@ -30,7 +33,10 @@ function Login() {
       email: email,
       password: password
     })
-      .then(() => window.location.replace("/dashboard"))
+      .then((res) => {
+        setUser(res.data)
+        history.push("/dashboard")
+      })
       .catch(err => console.log(err));
   }
 

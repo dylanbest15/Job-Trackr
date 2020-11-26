@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API";
+import { userContext } from "../../App";
 
 function JobCard({ jobInfo, applied }) {
 
     // set states
     const [shown, setShown] = useState(false);
+
+    const { user } = useContext(userContext);
 
     // event functions
     function createMarkup() {
@@ -30,7 +33,7 @@ function JobCard({ jobInfo, applied }) {
                 company_name: jobInfo.company_name,
                 job_link: jobInfo.url,
                 status: "pending",
-                UserId: "abc123"
+                UserId: user.id
             }).then(res => console.log(res))
                 .catch(err => console.log(err));
         }
