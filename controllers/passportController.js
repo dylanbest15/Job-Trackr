@@ -34,9 +34,37 @@ module.exports = {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        id: req.user.id,
         email: req.user.email,
-        id: req.user.id
+        firstname: req.user.firstname,
+        lastname: req.user.lastname,
+        jobs_pending: req.user.jobs_pending,
+        jobs_applied: req.user.jobs_applied,
+        jobs_interviewed: req.user.jobs_interviewed,
+        jobs_lettersent: req.user.jobs_lettersent,
+        jobs_offered: req.user.jobs_offered,
+        jobs_rejected: req.user.jobs_rejected,
+        jobs_noresponse: req.user.jobs_noresponse,
+        jobs_accepted: req.user.jobs_accepted,
+        createdAt: req.user.createdAt,
+        updatedAt: req.user.updatedAt
       });
     }
+  },
+  incrementUserValue: function (req, res) {
+    db.User.increment({ [req.params.value]: 1 }, {
+      where: {
+        id: req.params.UserId
+      }
+    }).then(response => res.json(response))
+      .catch(err => console.log(err));
+  },
+  decrementUserValue: function (req, res) {
+    db.User.increment({ [req.params.value]: -1 }, {
+      where: {
+        id: req.params.UserId
+      }
+    }).then(response => res.json(response))
+      .catch(err => console.log(err));
   }
 }

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function SankeyDiagram (props) {
+ function BarChart (props) {
     const classes = useStyles();
 
     const [data, setGraph] = useState([]);
@@ -32,43 +32,47 @@ const useStyles = makeStyles((theme) => ({
        .catch(err => console.log(err));
        }, []); 
        console.log(data);
-       console.log(data.jobs_interviewed);
-       console.log(data.jobs_offered);
-       console.log(data.jobs_rejected);
-       console.log(data.jobs_noresponse);
-       console.log(data.jobs_accepted);
+       console.log(data.jobs_pending - data.jobs_applied);
   
     return (
       <div className={classes.root}>
         <main className={classes.content}>
          <div className={classes.toolbar}/>
 
-        <Chart
-            width={600}
+         <Chart
+            width={'500px'}
             height={'300px'}
-            chartType="Sankey"
+            chartType="BarChart"
             loader={<div>Loading Chart</div>}
             data={[
-              ['From', 'To', 'Weight'],
-              // ['Applied', 'Interview', 5],
-              // ['Applied', 'No Response', 5],
-              // ['Interview', 'Offer', 3],
-              // ['Interview', 'Denied', 2],
-              // ['Offer', 'Acceptance', 1],
-              ['Applied', 'Interview', data.jobs_interviewed],
-              ['Applied', 'No Response', data.jobs_noresponse],
-              ['Interview', 'Offer', data.jobs_offered],
-              ['Interview', 'Denied', data.jobs_rejected],
-              ['Offer', 'Acceptance', data.jobs_accepted],
+                ['Status', 'Value'],
+                ['Pending', data.jobs_pending],
+                ['Applied', data.jobs_applied],
+                ['Interviewed', data.jobs_interviewed],
+                ['Thank You Letter', data.jobs_lettersent],
+                ['Offered', data.jobs_offered],
+                ['Not Selected', data.jobs_rejected]
             ]}
-            rootProps={{ 'data-testid': '2' }}
+            options={{
+                title: 'Application Status',
+                chartArea: { width: '50%' },
+                hAxis: {
+                title: 'Total Population',
+                minValue: 0,
+                },
+                // vAxis: {
+                // title: 'City',
+                // },
+            }}
+        // For tests
+        rootProps={{ 'data-testid': '1' }}
         />
       </main>
       </div>
     );
   }
 
-  export default SankeyDiagram;
+  export default BarChart;
 
 
            
