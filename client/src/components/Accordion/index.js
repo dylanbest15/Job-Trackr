@@ -60,9 +60,9 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   const classes = useStyles();
 
   //job status menu items
-const status = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
+  const statusList = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
 
-//set states
+  //set states
   const [status, setStatus] = useState([]);
 
   useEffect(() => {
@@ -70,11 +70,11 @@ const status = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Le
     API.updateApplicationStatus(jobInfo.id, jobInfo.status)
       .then(res => setStatus(res.data))
       .catch(err => console.log(err));
-  }, []);
+  }, [updateStatus]);
 
   // event function to set application status on click
   function updateStatus(event) {
-    setStatus(jobInfo.status = statusList[event.target.value]);
+    setStatus(jobInfo.status = statusList[event.target.value])
   }
 
   //remove application
