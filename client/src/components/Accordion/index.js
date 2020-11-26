@@ -60,9 +60,9 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
   const classes = useStyles();
 
   //job status menu items
-  const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected'];
+const status = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
 
-  //set states
+//set states
   const [status, setStatus] = useState([]);
 
   useEffect(() => {
