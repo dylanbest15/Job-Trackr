@@ -10,6 +10,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import API from "./../../utils/BenchmarkAPI";
+import API2 from './../../utils/PassportAPI';
+
 
 
 function LinearProgressWithLabel(props) {
@@ -57,16 +59,34 @@ const useStyles = makeStyles({
 
 
 
-function BenchmarkCard({ originalBenchmarkInfo }) {
+function BenchmarkCard({ originalBenchmarkInfo, userInfo}) {
     const classes = useStyles();
     const [progress, setProgress] = React.useState(0);
 
     React.useEffect(() => {
-        setProgress(0)
+      console.log(userInfo)
+      updateProgress()
+
     }, []);
+
     function updateProgress() {
         let oldProgress = progress;
-        oldProgress += 5
+
+        function progressMath(stat){
+          if ((oldProgress = ((stat /originalBenchmarkInfo.value)*100))> 100){oldProgress=100}
+          else{(oldProgress = ((stat /originalBenchmarkInfo.value)*100))}
+        };
+        // oldProgress += 5
+        if (originalBenchmarkInfo.type === "Application") {progressMath(userInfo.jobs_applied)}
+        else if (originalBenchmarkInfo.type = "Offer"){progressMath(userInfo.jobs_offered)}
+        else if (originalBenchmarkInfo.type = "Acceptance"){progressMath(userInfo.jobs_accepted)}
+        else if (originalBenchmarkInfo.type = "Interview"){progressMath(userInfo.jobs_interviewed)}
+        else if (originalBenchmarkInfo.type = "Letter"){progressMath(userInfo.jobs_lettersent)}
+        else if (originalBenchmarkInfo.type = "Denial"){progressMath(userInfo.jobs_rejected)}
+        else {console.log("error")}
+
+
+        // oldProgress = ((userInfo.jobs_applied /5)*100)
         // API.updateUserProgress().then(data=>{
         //     setProgress()
         // }).catch(Err=>{console.log("err")})
@@ -81,7 +101,8 @@ function BenchmarkCard({ originalBenchmarkInfo }) {
             {originalBenchmarkInfo.name}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            Benchmark
+          {userInfo.jobs_accepted}
+
           </Typography>
           <Typography variant="body2" component="p">
           {originalBenchmarkInfo.description}
