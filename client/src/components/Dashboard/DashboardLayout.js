@@ -8,6 +8,7 @@ import "../Dashboard/DashboardLayout.css";
 import Avatar from '@material-ui/core/Avatar';
 import { deepOrange, deepPurple, blue } from '@material-ui/core/colors';
 import Banner from '../Banner/Banner';
+import SankeyDiagram from '../SankeyDiagram/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+
+
 
   return (
     <Container>

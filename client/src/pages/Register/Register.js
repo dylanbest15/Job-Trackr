@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from '../../assets/logo.png';
 import { Spring } from 'react-spring/renderprops'
 import API from "../../utils/PassportAPI";
+import { userContext } from "../../App";
 
-function Register() {
+
+function Register({ history }) {
 
   // set states
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUser } = useContext(userContext);
 
   // event handlers
   const handleFirstNameChange = (event) => {
@@ -40,7 +44,10 @@ function Register() {
       password: password,
       firstname: firstName,
       lastname: lastName
-    }).then(() => window.location.replace("/dashboard"))
+    }).then((res) => {
+      setUser(res.data)
+      history.push("/dashboard")
+    })
       .catch(err => console.log(err));
   }
 
