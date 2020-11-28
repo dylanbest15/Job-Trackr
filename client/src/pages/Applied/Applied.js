@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import API from '../../utils/API';
 import Accordion from '../../components/Accordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
 import { makeStyles } from '@material-ui/core';
+import { userContext } from '../../App';
 
 //styling
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +20,8 @@ function Applied() {
     //set states
     const [jobs, setJobs] = useState([]);
 
+    const { user } = useContext(userContext);
+
     //manage state to update status of job in accordion
     const handleJobStatusUpdate = (index, status) => {
         const updatedJobs = [...jobs];
@@ -27,7 +30,7 @@ function Applied() {
     }
     //use effect for api calls
     useEffect(() => {
-        API.getApplications("1")
+        API.getApplications(user.id)
             .then(res => setJobs(res.data.map(job => (
                 job))))
             .catch(err => console.log(err));

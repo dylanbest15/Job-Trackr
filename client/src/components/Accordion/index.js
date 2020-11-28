@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../App';
 import './style.css';
 import API from '../../utils/API';
 import clsx from 'clsx';
@@ -62,6 +63,9 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }
   //job status menu items
   const statusList = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
 
+  //user
+  const { user } = useContext(userContext);
+
   // event function to set application status on click
   function updateStatus(event) {
     API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
@@ -72,7 +76,7 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }
   //remove application
   function handleRemoveApplication() {
     API.removeApplication(jobInfo.id)
-      .then(API.getApplications("1")
+      .then(API.getApplications(user.id)
         .then(res => setJobs(res.data.map(job => (
           job))))
         .catch(err => console.log(err)));
