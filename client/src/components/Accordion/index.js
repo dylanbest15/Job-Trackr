@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../App';
 import './style.css';
-import clsx from 'clsx';
 import API from '../../utils/API';
-
-//material ui component imports
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -16,7 +15,6 @@ import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { Container } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -57,29 +55,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppliedAccordion = ({ jobInfo, setJobs }) => {
+const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }) => {
 
   //import styles
   const classes = useStyles();
 
   //job status menu items
-  const status = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
+  const statusList = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
+
+  //user
+  const { user } = useContext(userContext);
+
+  // event function to set application status on click
+  function updateStatus(event) {
+    API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
+      .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
+      .catch(err => console.log(err));
+  }
 
   //remove application
   function handleRemoveApplication() {
     API.removeApplication(jobInfo.id)
-      .then(API.getApplications("1")
+      .then(API.getApplications(user.id)
         .then(res => setJobs(res.data.map(job => (
           job))))
         .catch(err => console.log(err)));
   }
 
   return (
-    <Container>
+    <>
       <div className={classes.root}>
         <div className={classes.content}>
           <div className={classes.toolbar}>
-            <Accordion defaultExpanded>
+            <Accordion default>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -104,8 +112,8 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
                           <UpdateIcon />
                         </Button>
                         <Menu {...bindMenu(popupState)}>
-                          {status.map((text) => (
-                            <MenuItem key={text} onClick={popupState.close}>{text}</MenuItem>
+                          {statusList.map((text, index) => (
+                            <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
                           ))}
                         </Menu>
                       </React.Fragment>
@@ -126,11 +134,10 @@ const AppliedAccordion = ({ jobInfo, setJobs }) => {
                 </div>
               </AccordionDetails>
             </Accordion>
-
           </div>
         </div>
       </div>
-    </Container>
+    </>
   );
 }
 

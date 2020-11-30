@@ -39,7 +39,7 @@ module.exports = {
   },
   update: function (req, res) {
     db.Application
-      .update({ status: req.query.status }, {
+      .update({ status: req.params.status }, {
         where: {
           id: req.params.id
         }
