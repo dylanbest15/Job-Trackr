@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import "../../pages/Articles/style.css"
 
 
 const drawerWidth = 240;
@@ -44,11 +45,13 @@ export default function ArticleGrid() {
         align="center"
         >
             <Grid item lg={4}>
+              <div className="resourcesDiv">
                 <ArticleCard 
                  url="https://www.themuse.com/advice/beat-the-robots-how-to-get-your-resume-past-the-system-into-human-hands"
                  image="https://pilbox.themuse.com/image.jpg?filter=antialias&h=367&opt=1&pos=top-left&prog=1&q=keep&url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F25280.jpg%3Fv%3Dbc1717374c025451fa03ebf47a828683ef0502c1&w=750"
                  title="Beat the Robots: How to Get Your Resume Past the System & Into Human Hands"
                 />
+                </div>
             </Grid>
             <Grid item lg={4}>
                 <ArticleCard 
