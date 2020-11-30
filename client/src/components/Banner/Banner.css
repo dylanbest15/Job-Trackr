@@ -3,7 +3,18 @@
     color: white;
 }
 
+/* .intro {
+    background-color: black;
+    opacity: 0.2;
+} */
+
 .banner {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Cantarell', sans-serif;
     font-size: x-large;
+}
+
+.bannerIntro {
+    font-family: 'Cantarell', sans-serif;
+    font-size: x-large;
+    text-decoration: underline;
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import API from "../../utils/DashBoardAPI";
 import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -9,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Col from '@material-ui/core/Container';
 import Row from '@material-ui/core/Container';
+import { userContext } from "../../App";
 
 const useStyles = makeStyles({
     table: {
@@ -16,45 +18,47 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(date, company, status) {
-    return { date, company, status };
-}
-
-const rows = [
-    createData('November 11', 'Liberty Mutual', 'Applied'),
-    createData('November 17', 'Apple', 'pending'),
-    createData('November 17', 'Netflix', 'pending'),
-];
 
 export default function RecentJobsTable() {
+    const [lastFive, setLastFive] = useState([]);
+    const { user } = useContext(userContext);
+    useEffect(() => {
+        async function listFive () {
+        const response = await API.getLastFive(user.id);
+        console.log(response.data);
+        setLastFive(response.data);
+        }
+        listFive();
+    }, [])
+
     const classes = useStyles();
 
     return (
         <div>
             <div className="header">
-                <h1>Recent Jobs</h1>
+                <h1 id="title">Recent Jobs</h1>
             </div>
             <Row className="yourJobsHeader">
-                <Col align="center">
+                {/* <Col align="center">
                     <a href="/applied">View All</a>
-                </Col>
+                </Col> */}
             </Row>
             <TableContainer>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell><b>Date</b></TableCell>
-                            <TableCell align="center"><b>Comapny</b></TableCell>
-                            <TableCell align="right"><b>Status</b></TableCell>
+                            <TableCell style= {{ color: "blue" }}><b>Company</b></TableCell>
+                            <TableCell align="center" style= {{ color: "blue" }}><b>Job Title</b></TableCell>
+                            <TableCell align="right" style= {{ color: "blue" }}><b>Status</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
-                            <TableRow key={row.name}>
+                        {lastFive.map((row) => (
+                            <TableRow key={row.id}>
                                 <TableCell component="th" scope="row">
-                                    {row.date}
+                                    {row.company_name}
                                 </TableCell>
-                                <TableCell align="center">{row.company}</TableCell>
+                                <TableCell align="center">{row.job_title}</TableCell>
                                 <TableCell align="right">{row.status}</TableCell>
                             </TableRow>
                         ))}
