@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import "../../pages/Articles/style.css"
 
 
 function Quotes() {
@@ -22,9 +23,8 @@ function Quotes() {
     .catch(err => console.log(err));
     }, []); 
     console.log(data);
-
   return (
-      <div>
+      <div className="quoteCard">
         {data.map((quote) => (
           <Card>
             <CardActionArea>
