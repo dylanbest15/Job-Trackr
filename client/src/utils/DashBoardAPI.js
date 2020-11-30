@@ -7,5 +7,7 @@ export default {
     return axios.get(`/api/users/${firstname}`);
   },
 
-  
+  getLastFive: function(userId) {
+    return axios.get(`/api/applications/recent/${userId}`);
+  },
 }

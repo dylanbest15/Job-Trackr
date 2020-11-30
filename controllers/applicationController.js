@@ -20,6 +20,17 @@ module.exports = {
       }).then(applications => res.json(applications))
       .catch(err => console.log(err));
   },
+  findByLastFive: function (req, res) {
+    db.Application
+    .findAll({
+      limit: 5,
+      where: {
+        UserId:  req.params.UserId,
+      },
+      order: [ [ 'updatedAt', 'DESC' ]]
+    }).then(applications => res.json(applications))
+    .catch(err => console.log(err));
+  },
   create: function (req, res) {
     db.Application
       .create(req.body)

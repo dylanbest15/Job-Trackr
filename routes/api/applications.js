@@ -10,6 +10,10 @@ router.route("/:UserId")
   .get(applicationController.findAll)
   .put(applicationController.update)
 
+// Matches with /api/applications/recent/:UserId
+router.route("/recent/:UserId")  
+  .get(applicationController.findByLastFive)
+
 //application id
   router.route("/:id")
   .delete(applicationController.remove);
