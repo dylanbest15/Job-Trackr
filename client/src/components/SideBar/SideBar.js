@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
+
 import { Link  } from 'react-router-dom';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work'; 
@@ -26,6 +27,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from "../../assets/logo.png"
 import { blue } from '@material-ui/core/colors';
 import "../../styles/SideBar.css";
+import AccountCircle from '../AccountCircle/AccountCircle';
+import Notifications from '../Notifications/Notifications';
 
 const drawerWidth = 240;
 
@@ -87,11 +90,6 @@ const drawerArray = [
     to: "/resources",
     IconComponent: BusinessIcon,
     text: "Resources",
-  },
-  {
-    to: "/dashboard",
-    IconComponent: AccountCircleIcon,
-    text: "Profile",
   },
 ]
 
@@ -160,9 +158,14 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-             Welcome to Job Trackr!
+          <Typography variant="h5" noWrap>
+             Job Trackr
           </Typography>
+          <Notifications />
+          <AccountCircle />
+          {/* <div className="accountCircle">
+          <AccountCircleIcon />
+          </div> */}
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer}>
