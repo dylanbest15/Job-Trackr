@@ -29,20 +29,43 @@ function Applied() {
         const updatedJobs = [...jobs];
         updatedJobs[index].status = status;
         setJobs(updatedJobs);
-        console.log(status !== "Viewed");
-        if (status !== "Viewed") {
-            //only decrement pending if other value besides view/pending is selected
-            return (BENCHMARKS.decrementUserValue("jobs_pending", user.id))
-            //     else {
-            //all else increment on click
-            //     }
-            // }
+        //increment and decrement according to user's application statuses for benchmarks
+        if (status === "Viewed") {
+            return (BENCHMARKS.incrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Applied") {
+            BENCHMARKS.incrementUserValue("jobs_applied", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Interviewed") {
+            BENCHMARKS.incrementUserValue("jobs_interviewed", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Thank You Letter Sent") {
+            BENCHMARKS.incrementUserValue("jobs_lettersent", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Received Offer") {
+            BENCHMARKS.incrementUserValue("jobs_offered", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Not Selected") {
+            BENCHMARKS.incrementUserValue("jobs_rejected", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "No Response") {
+            BENCHMARKS.incrementUserValue("jobs_noresponse", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+        }
+        if (status === "Accepted") {
+            BENCHMARKS.incrementUserValue("jobs_accepted", user.id)
+                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
         }
     }
 
     //use effect for api calls
     useEffect(() => {
-        //get app status
+        //get applications from current user
         API.getApplications(user.id)
             .then(res => setJobs(res.data.map(job => (
                 job))))

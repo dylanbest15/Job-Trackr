@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { userContext } from '../../App';
 import './style.css';
 import API from '../../utils/API';
-import BENCHMARKS from '../../utils/PassportAPI';
 import clsx from 'clsx';
+//material ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -16,7 +16,6 @@ import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import Benchmarks from '../../pages/Benchmarks/Benchmarks';
 
 const drawerWidth = 240;
 
@@ -57,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition, values, onCountUpdate }) => {
+const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }) => {
 
   //import styles
   const classes = useStyles();
@@ -68,100 +67,80 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition, 
   //set user
   const { user } = useContext(userContext);
 
-  //increment or decrement user's benchmark values for app statuses
-  function updateValues() {
-    // console.log(indexPosition === values[index])
-    //ternary operator here
-    // if (indexPosition === values[index]) {
-      //identify value
-      // return (BENCHMARKS.incrementUserValue(value, user.id))
-      // } else (BENCHMARKS.decrementUserValue(value, user.id))
-      console.log(values, user.id)//showing all of countList from Applied
-      // console.log(values[index], user.id)//showing all of countList from Applied
-
-        //.then(res => onCountUpdate())
-        .catch(err => console.log(err));
-    }
-  
-
-    // event function to set application status on click and increment user's benchmark values for app statuses
-    function updateStatus(event) {
-      //set new value of user stats on click
-      // updateValues();
-      //set application status on click
-      API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
-        .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
-       /////////remove console.log when complete
-        .then(console.log(indexPosition, statusList[event.target.value])) //shows array posittion and matching status
-        .catch(err => console.log(err));
-    }
-
-    //remove application
-    function handleRemoveApplication() {
-      API.removeApplication(jobInfo.id)
-        .then(API.getApplications(user.id)
-          .then(res => setJobs(res.data.map(job => (
-            job))))
-          .catch(err => console.log(err)));
-    }
-
-    return (
-      <>
-        <div className={classes.root}>
-          <div className={classes.content}>
-            <div className={classes.toolbar}>
-              <Accordion default>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="accordionHeader"
-                >
-                  <div className={classes.column}>
-                    <Typography>{jobInfo.company_name}, {jobInfo.job_title}</Typography>
-                  </div>
-                </AccordionSummary>
-                <AccordionDetails className={classes.details}>
-                  <div className={classes.column}>
-                    <Typography>Status:</Typography>
-                  </div>
-                  <div className={classes.column}>
-                    <Typography>{jobInfo.status}</Typography>
-                  </div>
-                  <div className={classes.column}>
-                    <PopupState variant="popover" popupId="demo-popup-menu">
-                      {(popupState) => (
-                        <React.Fragment>
-                          <Button {...bindTrigger(popupState)}>
-                            <UpdateIcon />
-                          </Button>
-                          <Menu {...bindMenu(popupState)}>
-                            {statusList.map((text, index) => (
-                              <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
-                            ))}
-                          </Menu>
-                        </React.Fragment>
-                      )}
-                    </PopupState>
-                  </div>
-                  <div className={classes.column}>
-                    <Button>
-                      <DeleteForeverIcon onClick={handleRemoveApplication} />
-                    </Button>
-                  </div>
-                  <div className={clsx(classes.column, classes.helper)}>
-                    <Typography variant="caption">
-                      <a href={jobInfo.job_link} className={classes.link}>
-                        Review Job
-                    </a>
-                    </Typography>
-                  </div>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-          </div>
-        </div>
-      </>
-    );
+  // event function to set application status on click
+  function updateStatus(event) {
+    //set application status on click
+    API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
+      .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
+      .catch(err => console.log(err));
   }
 
-  export default AppliedAccordion;
+  //remove application
+  function handleRemoveApplication() {
+    API.removeApplication(jobInfo.id)
+      .then(API.getApplications(user.id)
+        .then(res => setJobs(res.data.map(job => (
+          job))))
+        .catch(err => console.log(err)));
+  }
+
+  return (
+    <>
+      <div className={classes.root}>
+        <div className={classes.content}>
+          <div className={classes.toolbar}>
+            <Accordion default>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="accordionHeader"
+              >
+                <div className={classes.column}>
+                  <Typography>{jobInfo.company_name}, {jobInfo.job_title}</Typography>
+                </div>
+              </AccordionSummary>
+              <AccordionDetails className={classes.details}>
+                <div className={classes.column}>
+                  <Typography>Status:</Typography>
+                </div>
+                <div className={classes.column}>
+                  <Typography>{jobInfo.status}</Typography>
+                </div>
+                <div className={classes.column}>
+                  <PopupState variant="popover" popupId="demo-popup-menu">
+                    {(popupState) => (
+                      <React.Fragment>
+                        <Button {...bindTrigger(popupState)}>
+                          <UpdateIcon />
+                        </Button>
+                        <Menu {...bindMenu(popupState)}>
+                          {statusList.map((text, index) => (
+                            <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
+                          ))}
+                        </Menu>
+                      </React.Fragment>
+                    )}
+                  </PopupState>
+                </div>
+                <div className={classes.column}>
+                  <Button>
+                    <DeleteForeverIcon onClick={handleRemoveApplication} />
+                  </Button>
+                </div>
+                <div className={clsx(classes.column, classes.helper)}>
+                  <Typography variant="caption">
+                    <a href={jobInfo.job_link} className={classes.link}>
+                      Review Job
+                    </a>
+                  </Typography>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default AppliedAccordion;
