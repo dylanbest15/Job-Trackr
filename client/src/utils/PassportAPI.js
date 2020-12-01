@@ -22,11 +22,13 @@ export default {
     return axios.get("/api/passport/user_data");
   },
 
+  //add to user stat
   incrementUserValue: function(value, UserId) {
-    return axios.get(`/api/passport/increment/${value}/${UserId}`);
+    return axios.put(`/api/passport/increment/${value}/${UserId}`);
   },
-
+  
+  //subratct from other stats
   decrementUserValue: function(value, UserId) {
-    return axios.get(`/api/passport/decrement/${value}/${UserId}`);
+    return axios.put(`/api/passport/decrement/${value}/${UserId}`);
   }
 }
