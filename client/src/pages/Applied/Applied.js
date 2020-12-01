@@ -20,50 +20,24 @@ function Applied() {
 
     //set states
     const [jobs, setJobs] = useState([]);
-    const [count, setCount] = useState([]);
 
     //set user
     const { user } = useContext(userContext);
 
-    //set table column reference to status list options
-    const countList = [
-        {
-            'Viewed': user.jobs_pending
-        },
-        {
-            'Applied': user.jobs_applied
-        },
-        {
-            'Interviewed': user.jobs_interviewed
-        },
-        {
-            'Thank You Letter Sent': user.jobs_lettersent
-        },
-        {
-            'Received Offer': user.jobs_offered
-        },
-        {
-            'Not Selected': user.jobs_rejected
-        },
-        {
-            'No Response': user.jobs_noresponse
-        },
-        {
-            'Accepted': user.jobs_accepted
-        }]
-
     //manage state to update status of job in accordion
     const handleJobStatusUpdate = (index, status) => {
         const updatedJobs = [...jobs];
-        updatedJobs[index].status = status
+        updatedJobs[index].status = status;
         setJobs(updatedJobs);
-    }
-
-    //manage state to update user's table app status counts/values
-    const handleCountUpdate = (index, value) => {
-        const updatedValue = [...count]
-        updatedValue[index].value = value //updatedJobs index needs to be the same as table colums or alternative method?
-        setCount(updatedValue); //update new value to user's stats
+        console.log(status !== "Viewed");
+        if (status !== "Viewed") {
+            //only decrement pending if other value besides view/pending is selected
+            return (BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            //     else {
+            //all else increment on click
+            //     }
+            // }
+        }
     }
 
     //use effect for api calls
@@ -72,12 +46,6 @@ function Applied() {
         API.getApplications(user.id)
             .then(res => setJobs(res.data.map(job => (
                 job))))
-            .catch(err => console.log(err));
-        //get user counts
-        BENCHMARKS.getUserData(countList) //gets user's current stats when page loads
-            /////////////////remove this console.log when done////////////
-            .then(console.log(countList)) //displays array of user's stats 
-            .then(setCount(countList))//setCount to current values
             .catch(err => console.log(err));
     }, []);
 
@@ -93,8 +61,6 @@ function Applied() {
                         page="applied"
                         setJobs={setJobs}
                         onJobStatusUpdate={handleJobStatusUpdate}
-                        values={countList}
-                        onCountUpdate={handleCountUpdate}
                     />
                 )) : null}
             </div>
