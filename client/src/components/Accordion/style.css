@@ -1,8 +1,16 @@
+/* style sheet for my jobs accordions */
 * {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
 }
 
 #accordionHeader {
-    background-color: rgba(43, 26, 71, 0.2);
+    background-color: rgb(76, 127, 139);
+    /* background-color: rgba(43, 26, 71, 0.2); */
+    /* font-family: 'Cantarell', sans-serif; */
+    /* color: rgb(82, 82, 82); */
+    /* background-color: rgb(0, 95, 119); */
+    /* color: white; */
+    color: rgb(241, 241, 241);
+    /* height: 75px; */
 }
