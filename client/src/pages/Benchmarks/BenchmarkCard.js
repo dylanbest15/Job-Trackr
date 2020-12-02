@@ -39,10 +39,19 @@ LinearProgressWithLabel.propTypes = {
    */
   value: PropTypes.number.isRequired,
 };
+let cardBackgroundColor = "white"
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 275,
+    backgroundColor: "LightGray",
+    // backgroundColor: cardBackgroundColor,
+
+
+  },
+  gold: {
+    maxWidth: 275,
+    backgroundColor: "#FFCC66",
   },
   bullet: {
     display: 'inline-block',
@@ -65,7 +74,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
 
   React.useEffect(() => {
     console.log(userInfo)
-    updateProgress()
+    updateProgress();
 
   }, []);
 
@@ -73,7 +82,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
     let oldProgress = progress;
 
     function progressMath(stat) {
-      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { oldProgress = 100 }
+      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { oldProgress = 100}
       else { (oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) }
     };
     if (originalBenchmarkInfo.type == "Application") { progressMath(userInfo.jobs_applied) }
@@ -88,7 +97,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
   }
   return (
 
-    <Card className={classes.root}>
+    <Card className={classes.gold}>
       <CardContent>
 
         <Typography variant="h5" component="h2">
@@ -104,7 +113,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
         <div className={classes.root}>
           <LinearProgressWithLabel value={progress} />
         </div>
-        <button onClick={updateProgress} className="btn btn-primary">Save</button>
+        {/* <button onClick={updateProgress} className="btn btn-primary">Save</button> */}
       </CardContent>
     </Card>
 
