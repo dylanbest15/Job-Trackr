@@ -13,4 +13,31 @@
     /* color: white; */
     color: rgb(241, 241, 241);
     /* height: 75px; */
+    /* font-size: 32px; */
+}
+
+#companyName {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#jobTitle {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* On screens that are 600px wide or less
+adjust font size, keep accordions same width, prevent side scroll*/
+@media screen and (max-width: 600px) {
+    * {
+      font-size: 16px;
+      max-width: 100%;
+      overflow-x: hidden;
+     }
+    #companyName {
+        font-size: medium;
+    }
+    #jobTitle {
+        font-size: medium;
+    }
 }

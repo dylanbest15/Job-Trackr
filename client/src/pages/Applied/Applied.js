@@ -83,10 +83,8 @@ function Applied() {
             <Grid
                 container
                 justify="center"
-                align="center"
-                style={{ width: "98%", margin: "0 auto" }}
-            >
-                <Grid item lg={10} sm={10} xs={12}>
+                align="center" >
+                <Grid item lg={12} xs={12}>
                     {jobs ? jobs.map((job, index) => (
                         <Accordion
                             key={job.id}
