@@ -3,10 +3,14 @@
 }
 
 .header {
-    background-color: rgb(4, 4, 136);
+    background-color: rgb(0, 95, 119);
     color: white;
     height: 75px;
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+#title {
+    font-family: 'Cantarell', sans-serif;
 }
