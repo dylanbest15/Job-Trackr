@@ -16,7 +16,6 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import UpdateIcon from '@material-ui/icons/Update';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import PopupState, { bindTrigger, bindMenu, bindToggle } from 'material-ui-popup-state';
 
 const drawerWidth = 240;
 
@@ -32,13 +31,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(1),
   },
-  companyHeader: {
+  statusTitle: {
     fontWeight: "400",
-    fontSize: "24px"
-  },
-  jobHeader: {
-    fontWeight: "500",
-    fontSize: "20px"
   },
   icon: {
     verticalAlign: 'bottom',
@@ -66,20 +60,35 @@ const useStyles = makeStyles((theme) => ({
 
 const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }) => {
 
+  //set user
+  const { user } = useContext(userContext);
+
   //import styles
   const classes = useStyles();
+
+  //set state for job status menu to open and close on click
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   //job status menu items
   const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'No Response', 'Accepted'];
 
-  //set user
-  const { user } = useContext(userContext);
+  //menu click event
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  //close menu on click
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   // event function to set application status on click
   function updateStatus(event) {
     //set application status on click
     API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
       .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
+      //close menu on click
+      .then(handleClose())
       .catch(err => console.log(err));
   }
 
@@ -100,34 +109,30 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
-              id="accordionHeader"
-            >
+              id="accordionHeader" >
               <Typography
-                className={classes.companyHeader}>{jobInfo.company_name}: <span className={classes.jobHeader}>  {jobInfo.job_title}</span>
+                id="companyName">{jobInfo.company_name}
+                <span id="jobTitle">  {jobInfo.job_title}</span>
               </Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.details}>
               <div className={classes.column}>
-                <Typography>Status:</Typography>
+                <Typography className={classes.statusTitle}>Status:
+                <span> {jobInfo.status}</span>
+                </Typography>
               </div>
               <div className={classes.column}>
-                <Typography>{jobInfo.status}</Typography>
-              </div>
-              <div className={classes.column}>
-                <PopupState variant="popover" popupId="demo-popup-menu">
-                  {(popupState) => (
-                    <React.Fragment>
-                      <Button {...bindTrigger(popupState)}>
-                        <UpdateIcon />
-                      </Button>
-                      <Menu {...bindMenu(popupState)}>
-                        {statusList.map((text, index) => (
-                          <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
-                        ))}
-                      </Menu>
-                    </React.Fragment>
-                  )}
-                </PopupState>
+                <Button onClick={handleClick}>
+                  <UpdateIcon />
+                </Button>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose} >
+                  {statusList.map((text, index) => (
+                    <MenuItem key={text} value={index} onClick={updateStatus}>{text}</MenuItem>
+                  ))}
+                </Menu>
               </div>
               <div className={classes.column}>
                 <Button>
