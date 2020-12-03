@@ -27,13 +27,13 @@ function Quotes() {
       <div className="quoteCard">
         {data.map((quote) => (
           <Card>
-            <CardActionArea>
+            <CardActionArea className="quoteClass">
               <CardMedia
                 // className={classes.media}
                 // image={props.image}
               /> 
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+              <CardContent className="quote">
+                <Typography gutterBottom variant="h5" component="h6">
                 {quote.q}
                 {quote.a}
                 </Typography>

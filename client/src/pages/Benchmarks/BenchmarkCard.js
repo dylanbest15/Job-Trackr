@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import API from "./../../utils/BenchmarkAPI";
 import API2 from './../../utils/PassportAPI';
+import './Benchmark.css';
+
 
 
 
@@ -38,28 +40,27 @@ LinearProgressWithLabel.propTypes = {
 let cardBackgroundColor = "white"
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: 275,
-    backgroundColor: "LightGray",
-    // backgroundColor: cardBackgroundColor,
-
-
-  },
-  gold: {
-    maxWidth: 275,
-    backgroundColor: "#FFCC66",
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+    root: {
+        maxWidth: 275,
+        margin: 15,
+        height: 200,
+        backgroundColor: "LightGray",
+      },
+      gold: {
+        maxWidth: 275,
+        backgroundColor: "#FFCC66",
+      },
+      bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+      },
+      title: {
+        fontSize: 14,
+      },
+      pos: {
+        marginBottom: 12,
+      },
 });
 
 
@@ -106,14 +107,12 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
         <Typography variant="body2" component="p">
           {originalBenchmarkInfo.description}
 
-        </Typography>
-        <div className={classes.root}>
-          <LinearProgressWithLabel value={progress} />
-        </div>
-        {/* <button onClick={updateProgress} className="btn btn-primary">Save</button> */}
-      </CardContent>
-    </Card>
-
+          </Typography>
+          <div className={classes.root}>
+                    <LinearProgressWithLabel value={progress} />
+                </div>
+        </CardContent>
+      </Card>
 
   )
 }

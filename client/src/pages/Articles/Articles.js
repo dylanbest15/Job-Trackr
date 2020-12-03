@@ -4,7 +4,7 @@ import ResponsiveDrawer from "../../components/SideBar/SideBar";
 import Quotes from "../../components/Quotes/index";
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-// import "./style.css";
+import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,9 +19,6 @@ function Articles() {
     // <div className= "flex">
     <div className={classes.root}>
       <ResponsiveDrawer />
-      <div className="quoteCard">
-        <Quotes /> 
-        </div>
         <div className="resourceGrid">
         <ArticleGrid />
         </div>

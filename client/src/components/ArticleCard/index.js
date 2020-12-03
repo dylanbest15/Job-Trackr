@@ -40,7 +40,7 @@ export default function ArticleCard (props) {
         <Grid item xs={4}>
           {/* <Paper className={classes.paper}>xs=6</Paper> */}
     <Card className={classes.root}>
-      <CardActionArea href={props.url} target="_blank">
+      <CardActionArea href={props.url} target="_blank" className="resourceCard">
         <CardMedia
           className={classes.media}
           image={props.image}
