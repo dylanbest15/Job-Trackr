@@ -33,10 +33,6 @@ const User = {
   Progress: 10,
 }
 LinearProgressWithLabel.propTypes = {
-  /**
-   * The value of the progress indicator for the determinate and buffer variants.
-   * Value between 0 and 100.
-   */
   value: PropTypes.number.isRequired,
 };
 let cardBackgroundColor = "white"
@@ -71,6 +67,7 @@ const useStyles = makeStyles({
 function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
   const classes = useStyles();
   const [progress, setProgress] = React.useState(0);
+  const 
 
   React.useEffect(() => {
     console.log(userInfo)
@@ -82,7 +79,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
     let oldProgress = progress;
 
     function progressMath(stat) {
-      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { oldProgress = 100}
+      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { oldProgress = 100 }
       else { (oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) }
     };
     if (originalBenchmarkInfo.type == "Application") { progressMath(userInfo.jobs_applied) }
