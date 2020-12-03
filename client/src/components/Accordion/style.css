@@ -1,5 +1,5 @@
 /* style sheet for my jobs accordions */
-* {
+html, body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
 }
@@ -29,7 +29,7 @@
 /* On screens that are 600px wide or less
 adjust font size, keep accordions same width, prevent side scroll*/
 @media screen and (max-width: 600px) {
-    * {
+    body {
       font-size: 16px;
       max-width: 100%;
       overflow-x: hidden;
