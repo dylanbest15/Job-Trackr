@@ -18,12 +18,12 @@ router.route("/logout")
 router.route("/user_data")
   .get(passportController.getUserData);
 
-// Matcheswith /api/passport/increment/:value/:UserId
-router.route("/increment/:value/:UserId")
+// Matcheswith /api/passport/increment/:value
+router.route("/increment/:value")
   .put(passportController.incrementUserValue);
 
-// Matches with /api/passport/decrement/:value/:UserId
-router.route("/decrement/:value/:UserId")
+// Matches with /api/passport/decrement
+router.route("/decrement")
   .put(passportController.decrementUserValue);
 
 module.exports = router;

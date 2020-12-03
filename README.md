@@ -68,14 +68,24 @@ As recent coding bootcamp graduates, we understand this dilemma all too well and
 * [linkedin.com/in/dylanbest15](https://www.linkedin.com/in/dylanbest15)
 
 ## Alissa Champigny
+* [achampigny4@gmail.com](achampigny4@gmail.com)
+* [https://github.com/achampigny4](https://github.com/achampigny4)
+* [https://www.linkedin.com/in/alissa-champigny-b1171a1a5](https://www.linkedin.com/in/alissa-champigny-b1171a1a5)
 
 ## Melanie DeBarros
+* [https://github.com/melaniede](https://github.com/melaniede)
+* [https://www.linkedin.com/in/melaniedebarros](https://www.linkedin.com/in/melaniedebarros)
 
 ## Brian O'Leary
+* [oleary.brian1@gmail.com](oleary.brian1@gmail.com)
+* [https://github.com/boleary1](https://github.com/boleary1)
+* [https://www.linkedin.com/in/brianfolanoleary](https://www.linkedin.com/in/brianfolanoleary)
 
 ## Shawn Rather
 
 ## Reed Santos
+* [reedsantos@icloud.com](reedsantos@icloud.com)
+* [https://github.com/Reedsantos](https://github.com/Reedsantos)
 
 
 # Collaboration
