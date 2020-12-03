@@ -68,7 +68,6 @@ const useStyles = makeStyles({
 function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
   const classes = useStyles();
   const [progress, setProgress] = React.useState(0);
-  const goldVariable = gold;
   React.useEffect(() => {
     console.log(userInfo)
     updateProgress();
