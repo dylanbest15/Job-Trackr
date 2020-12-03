@@ -3,6 +3,7 @@ import { userContext } from '../../App';
 import './style.css';
 import API from '../../utils/API';
 import clsx from 'clsx';
+//material ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -61,13 +62,14 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }
   const classes = useStyles();
 
   //job status menu items
-  const statusList = ['Viewed', 'Applied', 'No Response', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'Accepted'];
+  const statusList = ['Viewed', 'Applied', 'Interviewed', 'Thank You Letter Sent', 'Received Offer', 'Not Selected', 'No Response', 'Accepted'];
 
-  //user
+  //set user
   const { user } = useContext(userContext);
 
   // event function to set application status on click
   function updateStatus(event) {
+    //set application status on click
     API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
       .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
       .catch(err => console.log(err));

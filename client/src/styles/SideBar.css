@@ -8,3 +8,12 @@
     color: white;
     height: 100%;
 }
+
+.accountCircle {
+    position: absolute;
+    right: 20px;
+}
+
+#notifications {
+    margin-right: 35px;
+}

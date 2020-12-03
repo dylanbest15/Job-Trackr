@@ -19,8 +19,12 @@ function Articles() {
     // <div className= "flex">
     <div className={classes.root}>
       <ResponsiveDrawer />
+      <div className="quoteCard">
         <Quotes /> 
+        </div>
+        <div className="resourceGrid">
         <ArticleGrid />
+        </div>
     </div>
   );
 }

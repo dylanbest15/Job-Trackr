@@ -15,7 +15,8 @@ module.exports = {
       jobs_offered: req.user.jobs_offered,
       jobs_rejected: req.user.jobs_rejected,
       jobs_noresponse: req.user.jobs_noresponse,
-      jobs_accepted: req.user.jobs_accepted
+      jobs_accepted: req.user.jobs_accepted,
+      createdat: req.user.createdAt
     });
   },
   signupUser: function (req, res) {
