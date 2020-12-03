@@ -5,6 +5,9 @@ import API from './../../utils/BenchmarkAPI';
 import API2 from './../../utils/PassportAPI';
 import { userContext } from "./../../App" 
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
+import Quotes from "../../components/Quotes/index";
+import './Benchmark.css';
+
 
 
 // import benchmarks API
@@ -44,7 +47,8 @@ function Benchmarks() {
       <div className="container search-container">
 
         <h1>Benchmarks</h1>
-        
+        <Quotes /> 
+   
         <Grid container spacing={24}>
           {originalBenchmarks ? originalBenchmarks.map(originalBenchmark => (
             <Grid item md={3}>

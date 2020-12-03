@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import API from "./../../utils/BenchmarkAPI";
 import API2 from './../../utils/PassportAPI';
+import './Benchmark.css';
+
 
 
 
@@ -43,6 +45,8 @@ LinearProgressWithLabel.propTypes = {
 const useStyles = makeStyles({
     root: {
         maxWidth: 275,
+        margin: 15,
+        height: 200,
       },
       bullet: {
         display: 'inline-block',
@@ -111,7 +115,6 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo}) {
           <div className={classes.root}>
                     <LinearProgressWithLabel value={progress} />
                 </div>
-                <button onClick={updateProgress} className="btn btn-primary">Save</button>
         </CardContent>
       </Card>
 
