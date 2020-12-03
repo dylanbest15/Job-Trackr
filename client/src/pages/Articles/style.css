@@ -1,16 +1,17 @@
 .flex {
  display: flex;
+ 
 };
 body {
     font-size: 14px;
 }
-.quoteCard {
-    margin-top: 50px;
-    margin-left: 200px;
-    width: 1000px;
-    position: absolute;
-    text-align: center;
-}
+
 .resourceGrid {
-    margin-top: 150px;
+    margin-top: 50px;
+    
 }
+.resourceCard {
+    height: 300px;
+}
+
+

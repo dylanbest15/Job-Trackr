@@ -1,0 +1,18 @@
+
+.quoteCard {
+    margin-top: 0px;
+    width: 1190px;
+    position: absolute;
+    text-align: center;
+}
+.MuiGrid-container {
+    margin-top: 150px;
+}
+
+.quoteClass {
+    height: 100px;
+    margin: 30px;
+}
+.MuiGrid-grid-md-3 {
+    margin-top: 25px
+}
