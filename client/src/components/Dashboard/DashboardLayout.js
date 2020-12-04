@@ -10,6 +10,7 @@ import { deepOrange, deepPurple, blue, grey } from '@material-ui/core/colors';
 import Banner from '../Banner/Banner';
 import { userContext } from "../../App";
 import SankeyDiagram from '../SankeyDiagram/index';
+import SimpleTabs from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
@@ -58,6 +59,7 @@ export default function FullWidthGrid() {
     <Container>
       <div className={classes.root}>
         <Grid container spacing={3}>
+        <SimpleTabs />
         <Banner />
           <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>

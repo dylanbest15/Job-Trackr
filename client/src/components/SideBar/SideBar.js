@@ -26,7 +26,7 @@ import BusinessIcon from '@material-ui/icons/Business';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from "../../assets/logo.png"
 import { blue } from '@material-ui/core/colors';
-import "../../styles/SideBar.css";
+import "../SideBar/SideBar.css";
 import AccountCircle from '../AccountCircle/AccountCircle';
 import Notifications from '../Notifications/Notifications';
 
@@ -105,7 +105,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div id="sidebar">
-      <div className={classes.toolbar} >
+      <div className={classes.toolbar} id="topLogo">
         <img 
         src={Logo}
         width="70"

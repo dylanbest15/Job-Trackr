@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import "../../styles/SideBar.css";
+import "../SideBar/SideBar.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import { userContext } from "../../App";
