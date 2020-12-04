@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import clsx from 'clsx';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
@@ -31,24 +32,22 @@ function LinearProgressWithLabel(props) {
   );
 }
 
-const User = {
-  Progress: 10,
-}
+
 LinearProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
-let cardBackgroundColor = "white"
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 275,
     margin: 15,
     height: 200,
-    backgroundColor: "LightGray",
   },
   gold: {
-    maxWidth: 275,
     backgroundColor: "#FFCC66",
+  },
+  gray: {
+    backgroundColor: "LightGray",
   },
   bullet: {
     display: 'inline-block',
@@ -78,7 +77,9 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
     let oldProgress = progress;
 
     function progressMath(stat) {
-      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { oldProgress = 100 }
+      if ((oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) > 100) { 
+        oldProgress = 100 
+      }
       else { (oldProgress = ((stat / originalBenchmarkInfo.value) * 100)) }
     };
     if (originalBenchmarkInfo.type == "Application") { progressMath(userInfo.jobs_applied) }
@@ -93,7 +94,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
   }
   return (
 
-    <Card className={classes.gold}>
+    <Card className={progress< 100 ? clsx(classes.root, classes.gray) : clsx(classes.root, classes.gold)}>
       <CardContent>
 
         <Typography variant="h5" component="h2">
@@ -110,7 +111,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
           <LinearProgressWithLabel value={progress} />
         </div>
       </CardContent>
-      </Card >
+    </Card >
 
   )
 }
