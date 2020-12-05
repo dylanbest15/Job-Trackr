@@ -1,8 +1,9 @@
 
 .quoteCard {
     margin-top: 0px;
-    width: 1190px;
-    position: absolute;
+    /* width: 1190px; */
+    max-width: 1190px;
+    /* position: absolute; */
     text-align: center;
 }
 .MuiGrid-container {
@@ -16,3 +17,23 @@
 .MuiGrid-grid-md-3 {
     margin-top: 25px
 }
+
+@media (max-width: 1125px) {
+.MuiGrid-grid-md-3 {
+    flex-grow: 0 !important; 
+    max-width: 33% !important;
+    flex-basis: 33% !important;
+}}
+
+@media (max-width: 925px) {
+    .MuiGrid-grid-md-3 {
+        flex-grow: 0 !important;
+        max-width: 50% !important;
+        flex-basis: 50% !important;
+    }}
+@media (max-width: 709px) {
+        .MuiGrid-grid-md-3 {
+            flex-grow: 0 !important;
+            max-width: 100% !important;
+            flex-basis: 100% !important;
+        }}

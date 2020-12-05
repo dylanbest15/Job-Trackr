@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-
+  
   // login user
   loginUser: function (userData) {
     return axios.post("/api/passport/login/", userData);
