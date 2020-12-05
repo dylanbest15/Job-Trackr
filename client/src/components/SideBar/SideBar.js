@@ -23,7 +23,6 @@ import WorkIcon from '@material-ui/icons/Work';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import SearchIcon from '@material-ui/icons/Search';
 import BusinessIcon from '@material-ui/icons/Business';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logo from "../../assets/logo.png"
 import { blue } from '@material-ui/core/colors';
 import "../SideBar/SideBar.css";
@@ -124,8 +123,8 @@ function ResponsiveDrawer(props) {
         </ListItem>
       ))}
       </List>
-      <Divider />
-      <List>
+      {/* <Divider /> */}
+      {/* <List>
       <ListItem button>
           <ListItemIcon>
             <DashboardIcon />
@@ -138,7 +137,7 @@ function ResponsiveDrawer(props) {
           </ListItemIcon>
           <ListItemText primary="Inbox" />
         </ListItem>
-      </List>
+      </List> */}
     </div>
   );
 
@@ -212,37 +211,3 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default ResponsiveDrawer;
-
-
-
-
-
-
-
-
-
-
-{/* <ListItem button component={Link} to="/applied">
-          <ListItemIcon>
-            <WorkIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Jobs" />
-        </ListItem>
-        <ListItem button component={Link} to="/applied">
-          <ListItemIcon>
-            <WorkOutlineIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Suggested Jobs" />
-        </ListItem>
-        <ListItem button component={Link} to="/resources">
-          <ListItemIcon>
-            <BusinessIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Resources" />
-        </ListItem>
-        <ListItem button component={Link} to="/dashboard">
-          <ListItemIcon>
-            <AccountCircleIcon style={{ color: blue[50] }} />
-          </ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem> */}

@@ -63,7 +63,7 @@ export default function FullWidthGrid() {
         <Banner />
           <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>
-            <h1 id="word">JOBS <span className={classes.word}>APPLIED</span></h1>
+            <h1 id="word">jobs <span className={classes.word}>APPLIED</span></h1>
             <div className={classes.boot}>
             <Avatar className={classes.blue} id="one">{user.jobs_applied}</Avatar>
             </div>
@@ -71,7 +71,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>
-            <h1 id="word">JOBS <span className={classes.word}>PENDING</span></h1>
+            <h1 id="word">jobs <span className={classes.word}>PENDING</span></h1>
             <div className={classes.boot}>
             <Avatar className={classes.purple} id="two">{user.jobs_pending}</Avatar>
             </div>
@@ -79,7 +79,7 @@ export default function FullWidthGrid() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <Paper className={classes.paper}>
-            <h1 id="word">JOBS <span className={classes.word}>INTERVIEWED</span></h1>
+            <h1 id="word">jobs <span className={classes.word}>INTERVIEWED</span></h1>
             <div className={classes.boot}>
             <Avatar className={classes.orange} id="three">{user.jobs_interviewed}</Avatar>
             </div>

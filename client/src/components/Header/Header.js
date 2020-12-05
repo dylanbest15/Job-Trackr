@@ -35,12 +35,12 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+// function a11yProps(index) {
+//   return {
+//     id: `simple-tab-${index}`,
+//     'aria-controls': `simple-tabpanel-${index}`,
+//   };
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,6 +65,18 @@ export default function SimpleTabs() {
       if (window.location.pathname === "/dashboard") {
           return "Dashboard"
       }
+      if (window.location.pathname === "/search") {
+        return "Search Jobs"
+      }
+      if (window.location.pathname === "/applied") {
+        return "My Jobs"
+      }
+      if (window.location.pathname === "/resources") {
+        return "Resources"
+      }
+      if (window.location.pathname === "/benchmarks") {
+        return "Benchmarks"
+      }
   }
   console.log(HeaderView())
 
@@ -72,7 +84,7 @@ export default function SimpleTabs() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.orange}>
         <Tabs value={value} id="tabs" aria-label="simple tabs example">
-          <Tab label={HeaderView}  />
+          <Tab label={HeaderView()}  />
           {/* <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
