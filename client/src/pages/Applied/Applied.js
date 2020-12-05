@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { userContext } from '../../App';
 import API from '../../utils/API';
 import BENCHMARKS from '../../utils/PassportAPI';
 import Accordion from '../../components/Accordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
+//material ui
 import { makeStyles } from '@material-ui/core';
-import { userContext } from '../../App';
+import Grid from '@material-ui/core/Grid';
+
 
 //styling
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +32,7 @@ function Applied() {
         const updatedJobs = [...jobs];
         updatedJobs[index].status = status;
         setJobs(updatedJobs);
+
         //increment and decrement according to user's application statuses for benchmarks
         if (status === "Viewed") {
             return (BENCHMARKS.incrementUserValue("jobs_pending"))
@@ -75,19 +79,25 @@ function Applied() {
     return (
         <div className={classes.root}>
             <ResponsiveDrawer />
-            <div>
-                {jobs ? jobs.map((job, index) => (
-                    <Accordion
-                        key={job.id}
-                        indexPosition={index}
-                        jobInfo={job}
-                        page="applied"
-                        setJobs={setJobs}
-                        onJobStatusUpdate={handleJobStatusUpdate}
-                    />
-                )) : null}
-            </div>
+            <Grid
+                container
+                justify="center"
+                align="center" >
+                <Grid item lg={12} xs={12}>
+                    {jobs ? jobs.map((job, index) => (
+                        <Accordion
+                            key={job.id}
+                            indexPosition={index}
+                            jobInfo={job}
+                            page="applied"
+                            setJobs={setJobs}
+                            onJobStatusUpdate={handleJobStatusUpdate}
+                        />
+                    )) : null}
+                </Grid>
+            </Grid>
         </div>
+
     )
 };
 
