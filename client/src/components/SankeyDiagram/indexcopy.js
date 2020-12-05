@@ -24,28 +24,29 @@ const useStyles = makeStyles((theme) => ({
 function SankeyDiagram(props) {
   const classes = useStyles();
 
-  const [data, setGraph] = useState([]);
+    const [data, setGraph] = useState([]);
+    data.jobs_noresponse = data.jobs_applied - data.jobs_interviewed;
 
-  useEffect(() => {
-    API.getUserData()
-      .then(res => setGraph(res.data))
-      .catch(err => console.log(err));
-  }, []);
-  console.log(data);
-  console.log(data.jobs_interviewed);
-  console.log(data.jobs_offered);
-  console.log(data.jobs_rejected);
-  console.log(data.jobs_noresponse);
-  console.log(data.jobs_accepted);
-
-  return (
-    <div className={classes.root}>
-         {/* <main className={classes.content}>
-        <div className={classes.toolbar} /> */}
-
+    useEffect(() => {
+       API.getUserData()
+       .then(res => setGraph(res.data))
+       .catch(err => console.log(err));
+       }, []); 
+       console.log(data);
+       console.log(data.jobs_interviewed);
+       console.log(data.jobs_offered);
+       console.log(data.jobs_rejected);
+       console.log(data.jobs_noresponse);
+       console.log(data.jobs_accepted);
+  
+    return (
+      <div className={classes.root}>
+        <main className={classes.content}>
+         <div className={classes.toolbar}/>
+      
         <Chart
-          // width={600}
-          // height={'300px'}
+          width={600}
+          height={'300px'}
           chartType="Sankey"
           loader={<div>Loading Chart</div>}
           data={[
@@ -63,8 +64,8 @@ function SankeyDiagram(props) {
           ]}
           rootProps={{ 'data-testid': '2' }}
         />
-         {/* </main> */}
-     </div>
+      </main>
+    </div>
   );
 }
 

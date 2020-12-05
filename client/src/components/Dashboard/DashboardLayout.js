@@ -11,6 +11,7 @@ import Banner from '../Banner/Banner';
 import { userContext } from "../../App";
 import SankeyDiagram from '../SankeyDiagram/index';
 import SimpleTabs from '../Header/Header';
+import BarChart from '../BarChart/index';
 import Footer from '../Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,11 +43,19 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.black
+    color: theme.palette.black,
+    flexGrow: 1,
+    // maxWidth: '100%'
   },
   word: {
     fontWeight: "900",
     fontSize: "30px"
+  },
+  height: {
+    height: "500px",
+  },
+  graph: {
+    padding: "150px 19px",
   }
 }));
 
@@ -91,8 +100,9 @@ export default function FullWidthGrid() {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Paper className={classes.paper}>
+            <Paper className={`${classes.paper} ${classes.height} ${classes.graph}`}>
             <SankeyDiagram />
+            {/* <BarChart item xs={12} sm={6} /> */}
               {/* <h3>Recent Job Searches</h3>
               <p>link to recently searched job title</p>
               <p>link to recently searched job title</p>
