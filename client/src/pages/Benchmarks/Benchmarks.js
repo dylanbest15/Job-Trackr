@@ -7,6 +7,8 @@ import { userContext } from "./../../App"
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
 import Quotes from "../../components/Quotes/index";
 import './Benchmark.css';
+import SimpleTabs from './../../components/Header/Header';
+
 
 
 
@@ -46,7 +48,7 @@ function Benchmarks() {
 
       <div className="container search-container">
 
-        <h1>Benchmarks</h1>
+      <SimpleTabs />
         <Quotes /> 
    
         <Grid container spacing={3}>

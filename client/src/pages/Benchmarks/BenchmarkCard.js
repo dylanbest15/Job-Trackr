@@ -5,13 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import clsx from 'clsx';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
+
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import API from "./../../utils/BenchmarkAPI";
-import API2 from './../../utils/PassportAPI';
+
 import './Benchmark.css';
 
 
@@ -44,7 +42,7 @@ const useStyles = makeStyles({
     height: 200,
   },
   gold: {
-    backgroundColor: "#FFCC66",
+    backgroundColor: "#FF9800",
   },
   gray: {
     backgroundColor: "LightGray",
@@ -103,10 +101,7 @@ function BenchmarkCard({ originalBenchmarkInfo, userInfo }) {
         <Typography className={classes.pos} color="textSecondary">
 
         </Typography>
-        <Typography variant="body2" component="p">
-          {originalBenchmarkInfo.description}
 
-        </Typography>
         <div className={classes.root}>
           <LinearProgressWithLabel value={progress} />
         </div>

@@ -31,7 +31,7 @@
         max-width: 50% !important;
         flex-basis: 50% !important;
     }}
-    @media (max-width: 709px) {
+@media (max-width: 709px) {
         .MuiGrid-grid-md-3 {
             flex-grow: 0 !important;
             max-width: 100% !important;
