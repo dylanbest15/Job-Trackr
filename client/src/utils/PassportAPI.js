@@ -23,10 +23,10 @@ export default {
   },
 
   incrementUserValue: function(value) {
-    return axios.get(`/api/passport/increment/${value}`);
+    return axios.put(`/api/passport/increment/${value}`);
   },
 
   decrementUserValue: function() {
-    return axios.get(`/api/passport/decrement`);
+    return axios.put("/api/passport/decrement");
   }
 }

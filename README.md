@@ -82,10 +82,14 @@ As recent coding bootcamp graduates, we understand this dilemma all too well and
 * [https://www.linkedin.com/in/brianfolanoleary](https://www.linkedin.com/in/brianfolanoleary)
 
 ## Shawn Rather
+* [sarsa.web@gmail.com](sarsa.web@gmail.com)
+* [https://github.com/SAR-SA](https://github.com/SAR-SA)
+* [https://www.linkedin.com/in/shawn-a-rather](https://www.linkedin.com/in/shawn-a-rather)
 
 ## Reed Santos
 * [reedsantos@icloud.com](reedsantos@icloud.com)
 * [https://github.com/Reedsantos](https://github.com/Reedsantos)
+* [https://www.linkedin.com/in/reed-santos-3598091ab](https://www.linkedin.com/in/reed-santos-3598091ab)
 
 
 # Collaboration

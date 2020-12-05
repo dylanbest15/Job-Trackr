@@ -31,35 +31,35 @@ function Applied() {
         setJobs(updatedJobs);
         //increment and decrement according to user's application statuses for benchmarks
         if (status === "Viewed") {
-            return (BENCHMARKS.incrementUserValue("jobs_pending", user.id))
+            return (BENCHMARKS.incrementUserValue("jobs_pending"))
         }
         if (status === "Applied") {
-            BENCHMARKS.incrementUserValue("jobs_applied", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_applied")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "Interviewed") {
-            BENCHMARKS.incrementUserValue("jobs_interviewed", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_interviewed")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "Thank You Letter Sent") {
-            BENCHMARKS.incrementUserValue("jobs_lettersent", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_lettersent")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "Received Offer") {
-            BENCHMARKS.incrementUserValue("jobs_offered", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_offered")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "Not Selected") {
-            BENCHMARKS.incrementUserValue("jobs_rejected", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_rejected")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "No Response") {
-            BENCHMARKS.incrementUserValue("jobs_noresponse", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_noresponse")
+                .then(BENCHMARKS.decrementUserValue())
         }
         if (status === "Accepted") {
-            BENCHMARKS.incrementUserValue("jobs_accepted", user.id)
-                .then(BENCHMARKS.decrementUserValue("jobs_pending", user.id))
+            BENCHMARKS.incrementUserValue("jobs_accepted")
+                .then(BENCHMARKS.decrementUserValue())
         }
     }
 

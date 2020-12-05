@@ -18,7 +18,7 @@ router.route("/logout")
 router.route("/user_data")
   .get(passportController.getUserData);
 
-// Matcheswith /api/passport/increment/:value
+// Matches with /api/passport/increment/:value
 router.route("/increment/:value")
   .put(passportController.incrementUserValue);
 
