@@ -51,7 +51,7 @@ function Benchmarks() {
    
         <Grid container spacing={24}>
           {originalBenchmarks ? originalBenchmarks.map(originalBenchmark => (
-            <Grid item md={3}>
+            <Grid item xs={12} md={3}>
               <BenchmarkCard
                 key={originalBenchmark.id}
                 originalBenchmarkInfo={originalBenchmark}
