@@ -1,5 +1,4 @@
 const db = require("../models");
-const passport = require("../config/passport");
 
 module.exports = {
   loginUser: function (req, res) {
@@ -62,20 +61,22 @@ module.exports = {
       });
     }
   },
-  incrementUserValue: function (req, res) {
+  incrementUserValue: function (req, res, next) {
     db.User.increment({ [req.params.value]: 1 }, {
       where: {
-        id: req.params.UserId
+        id: req.user.id
       }
     }).then(response => res.json(response))
       .catch(err => console.log(err));
   },
   decrementUserValue: function (req, res) {
-    db.User.increment({ [req.params.value]: -1 }, {
+    if (req.user.jobs_pending >= 0) {
+    db.User.increment({ jobs_pending: -1 }, {
       where: {
-        id: req.params.UserId
+        id: req.user.id
       }
     }).then(response => res.json(response))
       .catch(err => console.log(err));
+    }
   }
 }

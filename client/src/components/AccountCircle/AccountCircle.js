@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import "../../styles/SideBar.css";
+import "../SideBar/SideBar.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import { userContext } from "../../App";
