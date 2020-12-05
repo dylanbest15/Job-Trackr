@@ -1,10 +1,10 @@
 #topBar {
-    background: url(../assets/background.jpg);
+    background: url(../../assets/background.jpg);
     height: 80px;
 }
 
 #sidebar {
-    background: url(../assets/background.jpg);
+    background: url(../../assets/background.jpg);
     color: white;
     height: 100%;
 }
@@ -16,4 +16,8 @@
 
 #notifications {
     margin-right: 35px;
+}
+
+#topLogo {
+    margin-left: 75px;
 }
