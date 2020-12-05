@@ -7,13 +7,20 @@ import ResponsiveDrawer from "../../components/SideBar/SideBar";
 //material ui
 import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 
 //styling
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-    }
+        maxWidth: '100%',
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.black,
+    },
 }));
 
 function Applied() {
@@ -82,18 +89,20 @@ function Applied() {
             <Grid
                 container
                 justify="center"
-                align="center" >
-                <Grid item lg={12} xs={12}>
-                    {jobs ? jobs.map((job, index) => (
-                        <Accordion
-                            key={job.id}
-                            indexPosition={index}
-                            jobInfo={job}
-                            page="applied"
-                            setJobs={setJobs}
-                            onJobStatusUpdate={handleJobStatusUpdate}
-                        />
-                    )) : null}
+                align="center">
+                <Grid item lg={11} xs={11}>
+                    <Paper className={classes.paper}>
+                        {jobs ? jobs.map((job, index) => (
+                            <Accordion
+                                key={job.id}
+                                indexPosition={index}
+                                jobInfo={job}
+                                page="applied"
+                                setJobs={setJobs}
+                                onJobStatusUpdate={handleJobStatusUpdate}
+                            />
+                        )) : null}
+                    </Paper>
                 </Grid>
             </Grid>
         </div>

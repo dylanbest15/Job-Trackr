@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(1),
+    maxWidth: '100%',
   },
   statusTitle: {
     fontWeight: "400",
