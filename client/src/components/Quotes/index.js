@@ -5,7 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import InspirationApi from "../../utils/InspirationApi";
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import './style.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,12 +18,6 @@ const useStyles = makeStyles((theme) => ({
   overflow: {
     overflow: 'auto',
   },
-  // quote: {
-  //   font-family: 'Yellowtail', cursive;
-  // },
-  // author: {
-
-  // }
 }));
 
 function Quotes() {
@@ -43,16 +36,12 @@ function Quotes() {
         {data.map((quote) => (
           <Card className={classes.overflow}>
             <CardActionArea className="quoteClass">
-              <CardMedia
-                // className={classes.media}
-                // image={props.image}
-              /> 
               <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" align='center'>
                 <div className='quote'>
                   {quote.q}
                 </div>
-                <div className={classes.author}>
+                <div className='quote'>
                   - {quote.a}
                 </div>
                 </Typography>

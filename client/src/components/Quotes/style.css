@@ -1,3 +1,7 @@
 .quote {
     font-family: 'Yellowtail', cursive;
 }
+
+.quoteCenter {
+    text-align: center;
+}
