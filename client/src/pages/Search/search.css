@@ -43,3 +43,25 @@ div.search-container {
 .card-subtitle {
   font-size: 20px;
 }
+@media screen and (max-width: 600px){
+  div.search-container {
+    padding: 0px;
+    padding-top: 100px;
+}
+}
+@media screen and (max-width: 500px){
+  .MuiFormControl-root {
+  width: 75%;
+
+}
+.MuiOutlinedInput-root {
+  width: 100%;
+
+}
+.searchSubTitle {
+  display: none;
+}
+.accountCircle {
+  display: none;
+}
+}

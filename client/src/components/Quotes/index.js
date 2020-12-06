@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 150,
   },
+  overflow: {
+    overflow: 'auto',
+  },
   // quote: {
   //   font-family: 'Yellowtail', cursive;
   // },
@@ -38,7 +41,7 @@ function Quotes() {
   return (
       <div className={classes.root}>
         {data.map((quote) => (
-          <Card>
+          <Card className={classes.overflow}>
             <CardActionArea className="quoteClass">
               <CardMedia
                 // className={classes.media}
