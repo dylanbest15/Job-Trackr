@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { userContext } from '../../App';
+import './applied.css';
 import API from '../../utils/API';
 import BENCHMARKS from '../../utils/PassportAPI';
 import Accordion from '../../components/Accordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
+import SimpleTabs from '../../components/Header/Header';
 //material ui
 import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -86,9 +88,11 @@ function Applied() {
         <div className={classes.root}>
             <ResponsiveDrawer />
             <Grid
+                id="header"
                 container
                 justify="center"
-                align="center">
+                align="center" >
+                <SimpleTabs />
                 <Grid item lg={11} xs={11}>
                     <Paper className={classes.paper}>
                         {jobs ? jobs.map((job, index) => (
