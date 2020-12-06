@@ -70,7 +70,7 @@ module.exports = {
       .catch(err => console.log(err));
   },
   decrementUserValue: function (req, res) {
-    if (req.user.jobs_pending >= 0) {
+    if (req.user.jobs_pending > 0) {
     db.User.increment({ jobs_pending: -1 }, {
       where: {
         id: req.user.id
