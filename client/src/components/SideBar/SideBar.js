@@ -158,7 +158,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap>
-             Job Trackr
+             <b>J<i class="fas fa-search-location"></i>b Trackr</b>
           </Typography>
           <Notifications />
           <AccountCircle />
