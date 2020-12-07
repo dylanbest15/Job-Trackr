@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chart from "react-google-charts";
 import API from '../../utils/PassportAPI';
+import Row from '@material-ui/core/Grid';
+import './SankeyDiagram.css';
 
 
 const drawerWidth = 240;
@@ -39,8 +41,15 @@ function SankeyDiagram(props) {
   console.log(data.jobs_accepted);
 
   return (
-    <div className={classes.root}>
-         {/* <main className={classes.content}>
+    <div>
+      <div className="header">
+        <h1 id="title">Your Stats</h1>
+      </div>
+      <Row>
+
+      </Row>
+      <div className={classes.root}>
+        {/* <main className={classes.content}>
         <div className={classes.toolbar} /> */}
 
         <Chart
@@ -63,8 +72,9 @@ function SankeyDiagram(props) {
           ]}
           rootProps={{ 'data-testid': '2' }}
         />
-         {/* </main> */}
-     </div>
+        {/* </main> */}
+      </div>
+    </div>
   );
 }
 
