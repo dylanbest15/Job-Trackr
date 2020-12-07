@@ -86,7 +86,7 @@ const AppliedAccordion = ({ jobInfo, setJobs, onJobStatusUpdate, indexPosition }
   function updateStatus(event) {
     //set application status on click
     API.updateApplicationStatus(jobInfo.id, statusList[event.target.value])
-      .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value]))
+      .then(res => onJobStatusUpdate(indexPosition, statusList[event.target.value], jobInfo.status))
       //close menu on click
       .then(handleClose())
       .catch(err => console.log(err));

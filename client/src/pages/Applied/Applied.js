@@ -28,40 +28,41 @@ function Applied() {
     const { user } = useContext(userContext);
 
     //manage state to update status of job in accordion
-    const handleJobStatusUpdate = (index, status) => {
+    const handleJobStatusUpdate = (index, status, currentStatus) => {
+        console.log(status + currentStatus);
         const updatedJobs = [...jobs];
         updatedJobs[index].status = status;
         setJobs(updatedJobs);
 
         //increment and decrement according to user's application statuses for benchmarks
-        if (status === "Viewed") {
+        if (status === "Viewed" && status != currentStatus) {
             return (BENCHMARKS.incrementUserValue("jobs_pending"))
         }
-        if (status === "Applied") {
+        if (status === "Applied" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_applied")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "Interviewed") {
+        if (status === "Interviewed" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_interviewed")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "Thank You Letter Sent") {
+        if (status === "Thank You Letter Sent" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_lettersent")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "Received Offer") {
+        if (status === "Received Offer" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_offered")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "Not Selected") {
+        if (status === "Not Selected" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_rejected")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "No Response") {
+        if (status === "No Response" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_noresponse")
                 .then(BENCHMARKS.decrementUserValue())
         }
-        if (status === "Accepted") {
+        if (status === "Accepted" && status != currentStatus) {
             BENCHMARKS.incrementUserValue("jobs_accepted")
                 .then(BENCHMARKS.decrementUserValue())
         }
