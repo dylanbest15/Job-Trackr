@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import API from "../../utils/API";
+import BENCHMARKS from "../../utils/PassportAPI";
 import { userContext } from "../../App";
 
 function JobCard({ jobInfo, applied }) {
@@ -35,6 +36,8 @@ function JobCard({ jobInfo, applied }) {
                 status: "pending",
                 UserId: user.id
             }).then(res => console.log(res))
+                //increment user's pending jobs count when a job is viewed
+                .then(BENCHMARKS.incrementUserValue("jobs_pending"))
                 .catch(err => console.log(err));
         }
     }
@@ -51,8 +54,6 @@ function JobCard({ jobInfo, applied }) {
                 {shown ? <button className="btn searchBtn btn-primary" onClick={handleShown}>Show less</button> : null}
                 <button className="btn searchBtn btn-primary" onClick={handleSave}>Apply now!</button>
             </div>
-            <hr/>
-            <br/>
         </div>
     )
 }

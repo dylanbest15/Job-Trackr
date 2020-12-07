@@ -62,9 +62,6 @@ const useStyles = makeStyles((theme) => ({
                 title: 'Total Population',
                 minValue: 0,
                 },
-                // vAxis: {
-                // title: 'City',
-                // },
             }}
         // For tests
         rootProps={{ 'data-testid': '1' }}

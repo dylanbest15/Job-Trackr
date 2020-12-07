@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from "react";
 import API from '../../utils/API';
 import ResponsiveDrawer from './../../components/SideBar/SideBar';
 import JobCard from "./JobCardComp";
 import "./search.css";
 import logo from '../../assets/logo.png';
+import { userContext } from "../../App";
 
 
 // material ui component imports
@@ -20,11 +21,13 @@ function Search() {
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState([]);
     const [appliedJobs, setAppliedJobs] = useState([]);
+    //user
+    const { user } = useContext(userContext);
 
     // use effect for api calls
     useEffect(() => {
         // see what applications already exist
-        API.getApplications("abc123")
+        API.getApplications(user.id)
             .then(res => setAppliedJobs(res.data.map(application => (
                 application.job_id
             ))))

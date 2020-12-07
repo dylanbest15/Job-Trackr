@@ -33,12 +33,6 @@ function SankeyDiagram(props) {
       .then(res => setGraph(res.data))
       .catch(err => console.log(err));
   }, []);
-  console.log(data);
-  console.log(data.jobs_interviewed);
-  console.log(data.jobs_offered);
-  console.log(data.jobs_rejected);
-  console.log(data.jobs_noresponse);
-  console.log(data.jobs_accepted);
 
   return (
     <div>
@@ -49,21 +43,12 @@ function SankeyDiagram(props) {
 
       </Row>
       <div className={classes.root}>
-        {/* <main className={classes.content}>
-        <div className={classes.toolbar} /> */}
 
         <Chart
-          // width={600}
-          // height={'300px'}
           chartType="Sankey"
           loader={<div>Loading Chart</div>}
           data={[
             ['From', 'To', 'Weight'],
-            // ['Applied', 'Interview', 5],
-            // ['Applied', 'No Response', 5],
-            // ['Interview', 'Offer', 3],
-            // ['Interview', 'Denied', 2],
-            // ['Offer', 'Acceptance', 1],
             ['Applied', 'Interview', data.jobs_interviewed],
             ['Applied', 'No Response', data.jobs_noresponse],
             ['Interview', 'Offer', data.jobs_offered],
@@ -72,7 +57,6 @@ function SankeyDiagram(props) {
           ]}
           rootProps={{ 'data-testid': '2' }}
         />
-        {/* </main> */}
       </div>
     </div>
   );

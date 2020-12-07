@@ -27,7 +27,7 @@ export default function ArticleGrid() {
     <div className={classes.root}>
     {/* content and toolbar to position content on the page */}
     <main className={classes.content}>
-    <div className={classes.toolbar} />
+    {/* <div className={classes.toolbar} /> */}
       <Grid
         container spacing={3}
         justify="center"
@@ -88,7 +88,7 @@ export default function ArticleGrid() {
                 <ArticleCard 
                  url="https://www.themuse.com/advice/how-to-write-entry-level-resume-example"
                  image="https://pilbox.themuse.com/image.jpg?filter=antialias&h=384&opt=1&pos=top-left&prog=1&q=keep&url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F07242020-1159809871.jpg%3Fv%3Dbc1717374c025451fa03ebf47a828683ef0502c1&w=767"
-                 title="12 Tips for Writing an Entry-Level Resume That’ll Get Your Career Started Right (Plus an Example)"
+                 title="12 Tips for Writing an Entry-Level Resume That’ll Get Your Career Started Right"
                 />
             </Grid>
             <Grid item lg={4}>
