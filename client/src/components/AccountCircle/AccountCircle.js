@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import "../../styles/SideBar.css";
+import "../SideBar/SideBar.css";
 import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import { userContext } from "../../App";
@@ -40,7 +40,7 @@ export default function SimplePopper() {
         <p>{user.email}</p>
         <hr></hr>
         <h3>Member Since:</h3>
-        <p>{user.createdat}</p>
+        <p>{user.createdat.slice(5, 10) + "-" +user.createdat.slice(0, 4)}</p>
         </div>
       </Popper>
     </div>

@@ -48,10 +48,12 @@ const useStyles = makeStyles((theme) => ({
                 ['Status', 'Value'],
                 ['Pending', data.jobs_pending],
                 ['Applied', data.jobs_applied],
+                ['No Response', data.jobs_noresponse],
                 ['Interviewed', data.jobs_interviewed],
                 ['Thank You Letter', data.jobs_lettersent],
                 ['Offered', data.jobs_offered],
-                ['Not Selected', data.jobs_rejected]
+                ['Not Selected', data.jobs_rejected],
+                ['Not Accepted', data.jobs_accepted]
             ]}
             options={{
                 title: 'Application Status',
@@ -60,9 +62,6 @@ const useStyles = makeStyles((theme) => ({
                 title: 'Total Population',
                 minValue: 0,
                 },
-                // vAxis: {
-                // title: 'City',
-                // },
             }}
         // For tests
         rootProps={{ 'data-testid': '1' }}

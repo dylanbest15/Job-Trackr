@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import InspirationApi from "../../utils/InspirationApi";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
-import "../../pages/Articles/style.css"
+import './style.css';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    maxHeight: 345,
+  },
+  media: {
+    height: 150,
+  },
+  overflow: {
+    overflow: 'auto',
+  },
+}));
 
 function Quotes() {
 
  const [data, setResult] = useState([]);
+ const classes = useStyles();
 
  useEffect(() => {
     InspirationApi.getZen()
@@ -24,18 +32,18 @@ function Quotes() {
     }, []); 
     console.log(data);
   return (
-      <div className="quoteCard">
+      <div className={classes.root}>
         {data.map((quote) => (
-          <Card>
+          <Card className={classes.overflow}>
             <CardActionArea className="quoteClass">
-              <CardMedia
-                // className={classes.media}
-                // image={props.image}
-              /> 
-              <CardContent className="quote">
-                <Typography gutterBottom variant="h5" component="h6">
-                {quote.q}
-                {quote.a}
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2" align='center'>
+                <div className='quote'>
+                  {quote.q}
+                </div>
+                <div className='quote'>
+                  - {quote.a}
+                </div>
                 </Typography>
               </CardContent>
             </CardActionArea>

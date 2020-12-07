@@ -1,19 +1,27 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { userContext } from '../../App';
+import './applied.css';
 import API from '../../utils/API';
 import BENCHMARKS from '../../utils/PassportAPI';
 import Accordion from '../../components/Accordion/index';
 import ResponsiveDrawer from "../../components/SideBar/SideBar";
+import SimpleTabs from '../../components/Header/Header';
 //material ui
 import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-
+import Paper from '@material-ui/core/Paper';
 
 //styling
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-    }
+        maxWidth: '100%',
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.black,
+    },
 }));
 
 function Applied() {
@@ -81,20 +89,24 @@ function Applied() {
         <div className={classes.root}>
             <ResponsiveDrawer />
             <Grid
+                id="header"
                 container
                 justify="center"
                 align="center" >
-                <Grid item lg={12} xs={12}>
-                    {jobs ? jobs.map((job, index) => (
-                        <Accordion
-                            key={job.id}
-                            indexPosition={index}
-                            jobInfo={job}
-                            page="applied"
-                            setJobs={setJobs}
-                            onJobStatusUpdate={handleJobStatusUpdate}
-                        />
-                    )) : null}
+                <SimpleTabs />
+                <Grid item lg={11} xs={11}>
+                    <Paper className={classes.paper}>
+                        {jobs ? jobs.map((job, index) => (
+                            <Accordion
+                                key={job.id}
+                                indexPosition={index}
+                                jobInfo={job}
+                                page="applied"
+                                setJobs={setJobs}
+                                onJobStatusUpdate={handleJobStatusUpdate}
+                            />
+                        )) : null}
+                    </Paper>
                 </Grid>
             </Grid>
         </div>
