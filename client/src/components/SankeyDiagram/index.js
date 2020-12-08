@@ -35,13 +35,6 @@ function SankeyDiagram(props) {
   }, []);
 
   return (
-    <div>
-      <div className="header">
-        <h1 id="title">Your Stats</h1>
-      </div>
-      <Row>
-
-      </Row>
       <div className={classes.root}>
 
         <Chart
@@ -58,7 +51,7 @@ function SankeyDiagram(props) {
           rootProps={{ 'data-testid': '2' }}
         />
       </div>
-    </div>
+    
   );
 }
 
