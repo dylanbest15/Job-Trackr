@@ -67,13 +67,13 @@ const useStyles = makeStyles((theme) => ({
 export default function FullWidthGrid() {
   const classes = useStyles();
 
-  const { user } = useContext(userContext);
+  const { user, setUser } = useContext(userContext);
 
   // const [userdata, setUserData] = useState({})
 
   useEffect(() =>  {
     console.log(user);
-  }, [user])
+  }, [setUser])
   //   API.getUserData()
   //   .then (res => console.log(res))
   //   .catch (err => console.log(err));
