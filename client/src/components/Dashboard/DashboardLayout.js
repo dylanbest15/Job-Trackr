@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Row from '@material-ui/core/Grid';
-import Col from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import RecentJobsTable from '../RecentJobsTable/RecentJobsTable';
 import "../Dashboard/DashboardLayout.css";
@@ -12,8 +11,6 @@ import { deepOrange, deepPurple, blue, grey } from '@material-ui/core/colors';
 import Banner from '../Banner/Banner';
 import { userContext } from "../../App";
 import SankeyDiagram from '../SankeyDiagram/index';
-import SimpleTabs from '../Header/Header';
-import BarChart from '../BarChart/index';
 import Footer from '../Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +69,7 @@ export default function FullWidthGrid() {
   const { user } = useContext(userContext);
 
   return (
-    <div>
+    // <div>
       <Container>
         <div className={classes.root}>
           <Grid container justify="center" spacing={3}>
@@ -129,7 +126,7 @@ export default function FullWidthGrid() {
           </Grid>
         </div>
       </Container>
-      {/* <Footer /> */}
-    </div>
+      // {/* <Footer /> */}
+    // </div>
   );
 }
