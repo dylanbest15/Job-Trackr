@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.black,
+        marginTop: '20px'
     },
 }));
 
 function Applied() {
 
-    //set classes
+    //set style classes
     const classes = useStyles();
 
     //set states
@@ -86,31 +87,32 @@ function Applied() {
     }, []);
 
     return (
-        <div className={classes.root}>
-            <ResponsiveDrawer />
-            <Grid
-                id="header"
-                container
-                justify="center"
-                align="center" >
-                <SimpleTabs />
-                <Grid item lg={11} xs={11}>
-                    <Paper className={classes.paper}>
-                        {jobs ? jobs.map((job, index) => (
-                            <Accordion
-                                key={job.id}
-                                indexPosition={index}
-                                jobInfo={job}
-                                page="applied"
-                                setJobs={setJobs}
-                                onJobStatusUpdate={handleJobStatusUpdate}
-                            />
-                        )) : null}
-                    </Paper>
+        <>
+            <div className={classes.root}>
+                <ResponsiveDrawer />
+                <Grid
+                    id="header"
+                    container
+                    justify="center"
+                    align="center" >
+                    <SimpleTabs />
+                    <Grid item lg={11} xs={11}>
+                        <Paper className={classes.paper}>
+                            {jobs ? jobs.map((job, index) => (
+                                <Accordion
+                                    key={job.id}
+                                    indexPosition={index}
+                                    jobInfo={job}
+                                    page="applied"
+                                    setJobs={setJobs}
+                                    onJobStatusUpdate={handleJobStatusUpdate}
+                                />
+                            )) : null}
+                        </Paper>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
-
+            </div>
+        </>
     )
 };
 
