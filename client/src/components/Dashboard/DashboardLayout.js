@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.black,
     flexGrow: 1,
-    // maxWidth: '100%'
+    maxWidth: '100%'
   },
   size: {
     marginRight: "20px",
@@ -70,13 +70,13 @@ export default function FullWidthGrid() {
 
   return (
     // <div>
-      <Container>
+      <div>
         <div className={classes.root}>
           <Grid container justify="center" spacing={3}>
             {/* <SimpleTabs /> */}
             <Banner />
             <Row>
-              <Grid item xs={12} s={4}>
+              <Grid item xs={12} >
                 <Paper className={`${classes.paper} ${classes.size}`} >
                   <h1 id="word">JOBS <span className={classes.word}>APPLIED</span></h1>
                   <div className={classes.boot}>
@@ -86,7 +86,7 @@ export default function FullWidthGrid() {
               </Grid>
             </Row>
             <Row>
-              <Grid item xs={12} s={4}>
+              <Grid item xs={12} >
                 <Paper className={`${classes.paper} ${classes.size}`} >
                   <h1 id="word">JOBS <span className={classes.word}>PENDING</span></h1>
                   <div className={classes.boot}>
@@ -96,7 +96,7 @@ export default function FullWidthGrid() {
               </Grid>
             </Row>
             <Row>
-              <Grid item xs={12} s={4}>
+              <Grid item xs={12} >
                 <Paper className={`${classes.paper} ${classes.size}`}>
                   <h1 id="word">JOBS <span className={classes.word}>INTERVIEWED</span></h1>
                   <div className={classes.boot}>
@@ -125,7 +125,7 @@ export default function FullWidthGrid() {
             </Grid>
           </Grid>
         </div>
-      </Container>
+      </div>
       // {/* <Footer /> */}
     // </div>
   );
